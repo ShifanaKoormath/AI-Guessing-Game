@@ -1,0 +1,1856 @@
+{
+  "objects": [
+    {
+      "name": "Cat",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": true,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": false,
+        "isPet": true,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": true,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": false
+      }
+    },
+    {
+      "name": "Dog",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": true,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": false,
+        "isPet": true,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": false,
+        "isOmnivore": true,
+        "isVenomous": false,
+        "isLarge": true
+      }
+    },
+    {
+      "name": "Cow",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": true,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": true,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": true
+      }
+    },
+    {
+      "name": "Goat",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": true,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": true,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": false
+      }
+    },
+    {
+      "name": "Sheep",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": true,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": true,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": false
+      }
+    },
+    {
+      "name": "Horse",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": true,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": true,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": true
+      }
+    },
+    {
+      "name": "Buffalo",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": true,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": true,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": true
+      }
+    },
+    {
+      "name": "Pig",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": true,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": false,
+        "isOmnivore": true,
+        "isVenomous": false,
+        "isLarge": false
+      }
+    },
+    {
+      "name": "Lion",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": true,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": true,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": true
+      }
+    },
+    {
+      "name": "Tiger",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": true,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": true,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": true
+      }
+    },
+    {
+      "name": "Leopard",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": true,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": true,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": false
+      }
+    },
+    {
+      "name": "Cheetah",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": true,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": true,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": false
+      }
+    },
+    {
+      "name": "Elephant",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": true,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": true,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": true
+      }
+    },
+    {
+      "name": "Bear",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": true,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": false,
+        "isOmnivore": true,
+        "isVenomous": false,
+        "isLarge": true
+      }
+    },
+    {
+      "name": "Deer",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": true,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": true,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": false
+      }
+    },
+    {
+      "name": "Monkey",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": true,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": false,
+        "isOmnivore": true,
+        "isVenomous": false,
+        "isLarge": false
+      }
+    },
+    {
+      "name": "Eagle",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": false,
+        "isBird": true,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": true,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": true,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": false
+      }
+    },
+    {
+      "name": "Parrot",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": false,
+        "isBird": true,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": true,
+        "isPet": true,
+        "isWild": true,
+        "isHerbivore": true,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": false
+      }
+    },
+    {
+      "name": "Sparrow",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": false,
+        "isBird": true,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": true,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": false
+      }
+    },
+    {
+      "name": "Crow",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": false,
+        "isBird": true,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": true,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": false,
+        "isOmnivore": true,
+        "isVenomous": false,
+        "isLarge": false
+      }
+    },
+    {
+      "name": "Pigeon",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": false,
+        "isBird": true,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": true,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": false
+      }
+    },
+    {
+      "name": "Owl",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": false,
+        "isBird": true,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": true,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": true,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": false
+      }
+    },
+    {
+      "name": "Peacock",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": false,
+        "isBird": true,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": true,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": false
+      }
+    },
+    {
+      "name": "Snake",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": false,
+        "isBird": false,
+        "isReptile": true,
+        "isAquatic": false,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": true,
+        "isOmnivore": false,
+        "isVenomous": true,
+        "isLarge": false
+      }
+    },
+    {
+      "name": "Lizard",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": false,
+        "isBird": false,
+        "isReptile": true,
+        "isAquatic": false,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": false
+      }
+    },
+    {
+      "name": "Crocodile",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": false,
+        "isBird": false,
+        "isReptile": true,
+        "isAquatic": true,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": true,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": true
+      }
+    },
+    {
+      "name": "Turtle",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": false,
+        "isBird": false,
+        "isReptile": true,
+        "isAquatic": true,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": false
+      }
+    },
+    {
+      "name": "Fish",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": false,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": true,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": false
+      }
+    },
+    {
+      "name": "Shark",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": false,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": true,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": true,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": true
+      }
+    },
+    {
+      "name": "Dolphin",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": true,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": true,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": false
+      }
+    },
+    {
+      "name": "Whale",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": true,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": true,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": true
+      }
+    },
+    {
+      "name": "Octopus",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": false,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": true,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": false
+      }
+    },
+    {
+      "name": "Ant",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": false,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": false,
+        "isSmall": true
+      }
+    },
+    {
+      "name": "Bee",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": false,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": false,
+        "isSmall": true
+      }
+    },
+    {
+      "name": "Butterfly",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": false,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": false,
+        "isSmall": true
+      }
+    },
+    {
+      "name": "Mosquito",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": false,
+        "isBird": false,
+        "isReptile": false,
+        "isAquatic": false,
+        "canFly": false,
+        "isPet": false,
+        "isWild": true,
+        "isHerbivore": false,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isVenomous": false,
+        "isLarge": false,
+        "isSmall": true
+      }
+    },
+    {
+      "name": "Apple",
+      "category": "Food",
+      "attributes": {
+        "isSweet": true,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": true,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Banana",
+      "category": "Food",
+      "attributes": {
+        "isSweet": true,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": true,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Orange",
+      "category": "Food",
+      "attributes": {
+        "isSweet": true,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": true,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Mango",
+      "category": "Food",
+      "attributes": {
+        "isSweet": true,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": true,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Grapes",
+      "category": "Food",
+      "attributes": {
+        "isSweet": true,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": true,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Papaya",
+      "category": "Food",
+      "attributes": {
+        "isSweet": true,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": true,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Watermelon",
+      "category": "Food",
+      "attributes": {
+        "isSweet": true,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": true,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Pineapple",
+      "category": "Food",
+      "attributes": {
+        "isSweet": true,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": true,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Rice",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": true,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": true
+      }
+    },
+    {
+      "name": "Wheat",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": true
+      }
+    },
+    {
+      "name": "Bread",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": true,
+        "isSpicy": false,
+        "isCooked": true,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": true
+      }
+    },
+    {
+      "name": "Chapati",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": true,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": true
+      }
+    },
+    {
+      "name": "Noodles",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": true,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Pasta",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": true,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Potato",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": true,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Tomato",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Onion",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Carrot",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Cabbage",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Cauliflower",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Milk",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": true,
+        "isDairy": true,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Curd",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": true,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Butter",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": true,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Cheese",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": true,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Paneer",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": true,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Egg",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": false,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Chicken",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": false,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Fish Curry",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": true,
+        "isVegetarian": false,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Mutton",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": false,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Ice Cream",
+      "category": "Food",
+      "attributes": {
+        "isSweet": true,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": true,
+        "isFrozen": true,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Chocolate",
+      "category": "Food",
+      "attributes": {
+        "isSweet": true,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Biscuit",
+      "category": "Food",
+      "attributes": {
+        "isSweet": true,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Cake",
+      "category": "Food",
+      "attributes": {
+        "isSweet": true,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Juice",
+      "category": "Food",
+      "attributes": {
+        "isSweet": true,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": true,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Tea",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": true,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": true,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Coffee",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": true,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": true,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Water",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": false,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": true,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Pizza",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": true,
+        "isSpicy": false,
+        "isCooked": true,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Burger",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": true,
+        "isSpicy": false,
+        "isCooked": true,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Sandwich",
+      "category": "Food",
+      "attributes": {
+        "isSweet": false,
+        "isSalty": false,
+        "isSpicy": false,
+        "isCooked": true,
+        "isVegetarian": true,
+        "isFruit": false,
+        "isLiquid": false,
+        "isDairy": false,
+        "isFrozen": false,
+        "isStaple": false
+      }
+    },
+    {
+      "name": "Mobile Phone",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": true,
+        "usesElectricity": true,
+        "isPortable": true,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": true,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": false
+      }
+    },
+    {
+      "name": "Laptop",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": true,
+        "usesElectricity": true,
+        "isPortable": true,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": true,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": true
+      }
+    },
+    {
+      "name": "Tablet",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": true,
+        "usesElectricity": true,
+        "isPortable": true,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": true,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": false
+      }
+    },
+    {
+      "name": "Desktop",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": true,
+        "usesElectricity": true,
+        "isPortable": false,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": true,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": true
+      }
+    },
+    {
+      "name": "Television",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": true,
+        "usesElectricity": true,
+        "isPortable": false,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": true,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": false
+      }
+    },
+    {
+      "name": "Fan",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": true,
+        "isPortable": false,
+        "isFurniture": false,
+        "isAppliance": true,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": false
+      }
+    },
+    {
+      "name": "Refrigerator",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": true,
+        "isPortable": false,
+        "isFurniture": false,
+        "isAppliance": true,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": true
+      }
+    },
+    {
+      "name": "Washing Machine",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": true,
+        "isPortable": false,
+        "isFurniture": false,
+        "isAppliance": true,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": true
+      }
+    },
+    {
+      "name": "Microwave",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": true,
+        "isPortable": false,
+        "isFurniture": false,
+        "isAppliance": true,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": false
+      }
+    },
+    {
+      "name": "Air Conditioner",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": true,
+        "isPortable": false,
+        "isFurniture": false,
+        "isAppliance": true,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": true
+      }
+    },
+    {
+      "name": "Chair",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": false,
+        "isPortable": true,
+        "isFurniture": true,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": false
+      }
+    },
+    {
+      "name": "Table",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": false,
+        "isPortable": false,
+        "isFurniture": true,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": true
+      }
+    },
+    {
+      "name": "Sofa",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": false,
+        "isPortable": false,
+        "isFurniture": true,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": true
+      }
+    },
+    {
+      "name": "Bed",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": false,
+        "isPortable": false,
+        "isFurniture": true,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": true
+      }
+    },
+    {
+      "name": "Cupboard",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": false,
+        "isPortable": false,
+        "isFurniture": true,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": true
+      }
+    },
+    {
+      "name": "Bottle",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": false,
+        "isPortable": true,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": false
+      }
+    },
+    {
+      "name": "Bag",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": false,
+        "isPortable": true,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": false
+      }
+    },
+    {
+      "name": "Wallet",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": false,
+        "isPortable": true,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": false
+      }
+    },
+    {
+      "name": "Watch",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": false,
+        "isPortable": true,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": false
+      }
+    },
+    {
+      "name": "Glasses",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": false,
+        "isPortable": true,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": false
+      }
+    },
+    {
+      "name": "Pen",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": false,
+        "isPortable": true,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": true,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": false
+      }
+    },
+    {
+      "name": "Pencil",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": false,
+        "isPortable": true,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": true,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": false
+      }
+    },
+    {
+      "name": "Eraser",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": false,
+        "isPortable": true,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": true,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": false
+      }
+    },
+    {
+      "name": "Book",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": false,
+        "isPortable": true,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": false
+      }
+    },
+    {
+      "name": "Notebook",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": false,
+        "isPortable": true,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": false
+      }
+    },
+    {
+      "name": "Camera",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": true,
+        "usesElectricity": false,
+        "isPortable": true,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": true,
+        "isVehicle": false,
+        "isHeavy": false
+      }
+    },
+    {
+      "name": "Headphones",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": true,
+        "usesElectricity": false,
+        "isPortable": true,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": false
+      }
+    },
+    {
+      "name": "Speaker",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": true,
+        "usesElectricity": false,
+        "isPortable": false,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": false
+      }
+    },
+    {
+      "name": "Charger",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": true,
+        "isPortable": false,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": false
+      }
+    },
+    {
+      "name": "Power Bank",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": true,
+        "usesElectricity": false,
+        "isPortable": true,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": false,
+        "isHeavy": false
+      }
+    },
+    {
+      "name": "Car",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": false,
+        "isPortable": false,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": true,
+        "isHeavy": true
+      }
+    },
+    {
+      "name": "Bike",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": false,
+        "isPortable": false,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": true,
+        "isHeavy": false
+      }
+    },
+    {
+      "name": "Bicycle",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": false,
+        "isPortable": false,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": true,
+        "isHeavy": false
+      }
+    },
+    {
+      "name": "Bus",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": false,
+        "isPortable": false,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": true,
+        "isHeavy": true
+      }
+    },
+    {
+      "name": "Train",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "usesElectricity": false,
+        "isPortable": false,
+        "isFurniture": false,
+        "isAppliance": false,
+        "isTool": false,
+        "hasScreen": false,
+        "hasButtons": false,
+        "isVehicle": true,
+        "isHeavy": true
+      }
+    }
+  ]
+}
