@@ -1,12 +1,15 @@
 const express = require("express");
 const router = express.Router();
+
 const knowledgeBase = require("../data/knowledgeBase.json");
 const { selectBestQuestion } = require("../logic/decisionEngine");
+const { selectBestGuess } = require("../logic/confidenceEngine");
+const { formatQuestion } = require("../logic/questionFormatter");
 
 const MAX_QUESTIONS = 15;
 let gameState = null;
 
-// ---------- START GAME ----------
+// ---------- START ----------
 router.post("/start", (req, res) => {
   gameState = {
     phase: "category",
@@ -14,7 +17,8 @@ router.post("/start", (req, res) => {
     askedAttributes: [],
     currentAttribute: null,
     questionCount: 0,
-    categoryStep: 0
+    categoryStep: 0,
+    lastConfidence: 0
   };
 
   return res.json({
@@ -29,111 +33,145 @@ router.post("/answer", (req, res) => {
     return res.status(400).json({ message: "Game not started" });
   }
 
-  const answer = req.body.answer === true;
+  const answer = req.body.answer; // true | false | null
 
   // ================= CATEGORY PHASE =================
   if (gameState.phase === "category") {
     gameState.questionCount++;
 
-    // Step 1: Living?
     if (gameState.categoryStep === 0) {
-      if (answer) {
-        // Living → Animal
-        gameState.remainingObjects = gameState.remainingObjects.filter(
-          obj => obj.category === "Animal"
-        );
+      if (answer === true) {
+        gameState.remainingObjects =
+          gameState.remainingObjects.filter(o => o.category === "Animal");
         gameState.phase = "attributes";
-      } else {
-        // Not living → ask food
+      } else if (answer === false) {
         gameState.categoryStep = 1;
         return res.json({
           question: "Is it food?",
           questionNumber: gameState.questionCount + 1
         });
       }
-    }
-
-    // Step 2: Food? (only if NOT living)
-    else if (gameState.categoryStep === 1) {
-      if (answer) {
-        gameState.remainingObjects = gameState.remainingObjects.filter(
-          obj => obj.category === "Food"
-        );
-      } else {
-        gameState.remainingObjects = gameState.remainingObjects.filter(
-          obj => obj.category === "Object"
-        );
+    } else {
+      if (answer === true) {
+        gameState.remainingObjects =
+          gameState.remainingObjects.filter(o => o.category === "Food");
+      } else if (answer === false) {
+        gameState.remainingObjects =
+          gameState.remainingObjects.filter(o => o.category === "Object");
       }
       gameState.phase = "attributes";
     }
+  }
 
-    // Move to attribute phase
-    const attribute = selectBestQuestion(
+  // ================= ATTRIBUTE PHASE =================
+
+  // Apply previous answer ONLY if user was sure
+  if (
+    gameState.phase === "attributes" &&
+    gameState.currentAttribute &&
+    answer !== null
+  ) {
+    gameState.remainingObjects =
+      gameState.remainingObjects.filter(
+        obj => obj.attributes[gameState.currentAttribute] === answer
+      );
+  }
+
+  // Guess if done
+  if (
+    gameState.phase === "attributes" &&
+    (gameState.remainingObjects.length === 1 ||
+      gameState.questionCount >= MAX_QUESTIONS)
+  ) {
+    const guess = selectBestGuess(gameState.remainingObjects);
+    gameState.lastConfidence = guess.confidence;
+
+    return res.json({
+      status: "guess",
+      guess: guess.name,
+      confidence: guess.confidence
+    });
+  }
+
+  // Ask next attribute
+  if (gameState.phase === "attributes") {
+    const nextAttr = selectBestQuestion(
       gameState.remainingObjects,
       gameState.askedAttributes
     );
 
-    if (!attribute) {
+    if (!nextAttr) {
+      const guess = selectBestGuess(gameState.remainingObjects);
+      gameState.lastConfidence = guess.confidence;
+
       return res.json({
-        status: "success",
-        guess: gameState.remainingObjects[0]?.name || "Unknown"
+        status: "guess",
+        guess: guess.name,
+        confidence: guess.confidence
       });
     }
 
-    gameState.currentAttribute = attribute;
-    gameState.askedAttributes.push(attribute);
+    gameState.currentAttribute = nextAttr;
+
+    // Only mark as asked if user answered yes/no
+    if (answer !== null) {
+      gameState.askedAttributes.push(nextAttr);
+    }
+
     gameState.questionCount++;
 
     return res.json({
-      question: `Is it ${attribute}?`,
+      question: formatQuestion(nextAttr),
       questionNumber: gameState.questionCount
     });
   }
+});
 
-  // ================= ATTRIBUTE PHASE =================
-  const attr = gameState.currentAttribute;
+// ---------- FEEDBACK ----------
+router.post("/feedback", (req, res) => {
+  const { correct } = req.body;
 
-  gameState.remainingObjects = gameState.remainingObjects.filter(
-    obj => obj.attributes[attr] === answer
-  );
+  if (!gameState) {
+    return res.status(400).json({ message: "No active game" });
+  }
 
-  // Exact match
-  if (gameState.remainingObjects.length === 1) {
+  // If guess was correct → end game
+  if (correct) {
+    gameState = null;
     return res.json({
-      status: "success",
-      guess: gameState.remainingObjects[0].name
+      status: "done",
+      message: "🎉 Nice! That means my reasoning worked well."
     });
   }
 
-  // Question limit
-  if (gameState.questionCount >= MAX_QUESTIONS) {
+  // Guess was wrong → remove last guessed object
+  if (gameState.remainingObjects.length > 0) {
+    gameState.remainingObjects.shift(); // remove previous guess
+  }
+
+  // If no more objects, give up gracefully
+  if (gameState.remainingObjects.length === 0) {
+    gameState = null;
     return res.json({
-      status: "success",
-      guess: gameState.remainingObjects[0]?.name || "Unknown"
+      status: "done",
+      message:
+        "😅 I’ve run out of good guesses. That one tricked me!"
     });
   }
 
-  const nextAttribute = selectBestQuestion(
-    gameState.remainingObjects,
-    gameState.askedAttributes
-  );
-
-  if (!nextAttribute) {
-    return res.json({
-      status: "success",
-      guess: gameState.remainingObjects[0]?.name || "Unknown"
-    });
-  }
-
-  gameState.currentAttribute = nextAttribute;
-  gameState.askedAttributes.push(nextAttribute);
-  gameState.questionCount++;
+  // Make next best guess
+  const nextGuess = selectBestGuess(gameState.remainingObjects);
+  gameState.lastConfidence = nextGuess.confidence;
 
   return res.json({
-    question: `Is it ${nextAttribute}?`,
-    questionNumber: gameState.questionCount,
-    remaining: gameState.remainingObjects.length
+    status: "retry",
+    guess: nextGuess.name,
+    confidence: nextGuess.confidence,
+    message:
+      "Alright, let me try again. How about this?"
   });
 });
+
+
 
 module.exports = router;

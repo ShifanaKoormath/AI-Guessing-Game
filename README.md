@@ -1,127 +1,165 @@
-# 🤖 AI Guessing Game (Rule-Based Expert System)
+AI Guessing Game
+A Rule-Based Expert System (Symbolic AI)
 
-An interactive **rule-based AI guessing game** where the system asks a sequence of yes/no questions and attempts to guess what the user is thinking of.
+An interactive AI guessing game built using rule-based reasoning where the system asks structured questions and attempts to infer what the user is thinking of.
 
-The project demonstrates **symbolic AI**, **decision-tree reasoning**, and **human-like problem solving** without using machine learning.
+This project demonstrates symbolic AI, decision-tree reasoning, and human-like problem solving — without machine learning.
 
----
+📌 Project Overview
 
-## 📌 Project Overview
-
-The AI Guessing Game works similarly to classic “20 Questions” systems.
+The AI Guessing Game works on the same principle as classic “20 Questions” expert systems.
 
 The user thinks of an:
-- 🐾 Animal  
-- 🍎 Food  
-- 🪑 Object  
 
-The system:
-1. Identifies the **category**
-2. Asks **attribute-based questions**
-3. Narrows down possibilities intelligently
-4. Makes a **best-effort guess** within a fixed number of questions
+🐾 Animal
 
-This project focuses on **explainability and logic**, not prediction.
+🍎 Food
 
----
+🪑 Object
 
-## 🧠 Key Concepts Used
+The system then:
 
-- Symbolic AI (Rule-Based Reasoning)
-- Decision Trees
-- Attribute Elimination
-- Expert System Design
-- Human-aligned Question Flow
-- Frontend–Backend Separation
+Identifies the broad category
 
----
+Asks attribute-based questions
 
-## ✨ Features Implemented (v1.0)
+Progressively narrows the search space
 
-- ✅ Category-first reasoning (Living → Food → Object)
-- ✅ Large knowledge base (156 total entries)
-- ✅ Intelligent question selection (balanced splits)
-- ✅ No meaningless or repeated questions
-- ✅ Graceful handling of ambiguity
-- ✅ Friendly, conversational UI
-- ✅ Smooth transitions (no flashing questions)
-- ✅ Deterministic and explainable logic
+Makes a best-effort guess
 
----
+Accepts feedback and tries again if needed
 
-## 📊 Knowledge Base Summary
+The focus is on logic, transparency, and explainability, not prediction or training.
 
-The knowledge base is **programmatically generated** and contains:
+🧠 Core AI Concepts Demonstrated
 
-| Category | Entries |
-|--------|--------|
-| Animals | 52 |
-| Foods   | 52 |
-| Objects | 52 |
-| **Total** | **156** |
+Symbolic AI (Rule-Based Expert Systems)
 
-Each entry is defined using a **shared attribute schema** to ensure consistency.
+Decision Tree Reasoning
 
----
+Attribute Elimination
 
-## 🛠 Tech Stack
+Search Space Reduction
 
-### Frontend
-- React (Create React App)
-- JavaScript (ES6)
-- HTML & CSS
-- Fetch API
+Confidence Estimation from Uncertainty
 
-### Backend
-- Node.js
-- Express.js
-- JSON-based Knowledge Base
-- Custom Decision Engine
+Human-aligned Question Flow
 
----
+Deterministic Inference (No randomness, no ML)
 
-## 📂 Project Structure
+✨ Features Implemented (v1.0)
 
+✅ Category-first reasoning (Living → Food → Object)
+
+✅ Large, structured knowledge base (156 entries)
+
+✅ Intelligent question selection (balanced attribute splits)
+
+✅ No repeated or meaningless questions
+
+✅ “Not sure” option for uncertain user responses
+
+✅ Honest confidence estimation based on remaining possibilities
+
+✅ Retry logic when the first guess is wrong
+
+✅ Friendly, conversational UI
+
+✅ Smooth, stable transitions (no flashing or layout jumps)
+
+✅ Fully explainable and deterministic logic
+
+📊 Knowledge Base Summary
+
+The knowledge base is programmatically generated and structured using shared attribute schemas.
+
+Category	Entries
+Animals	52
+Foods	52
+Objects	52
+Total	156
+
+Each entity is represented as:
+
+A category
+
+A fixed set of boolean attributes
+
+This ensures consistency and predictable reasoning.
+
+🛠 Tech Stack
+Frontend
+
+React (Create React App)
+
+JavaScript (ES6)
+
+HTML & CSS
+
+Fetch API
+
+Backend
+
+Node.js
+
+Express.js
+
+JSON-based Knowledge Base
+
+Custom Decision & Confidence Engines
+
+📂 Project Structure
 AI-Guessing-Game/
 ├── backend/
-│ ├── data/
-│ │ └── knowledgeBase.json
-│ ├── logic/
-│ │ └── decisionEngine.js
-│ ├── routes/
-│ │ └── gameRoutes.js
-│ ├── server.js
-│ └── package.json
+│   ├── data/
+│   │   └── knowledgeBase.json
+│   ├── logic/
+│   │   ├── decisionEngine.js
+│   │   ├── confidenceEngine.js
+│   │   └── questionFormatter.js
+│   ├── routes/
+│   │   └── gameRoutes.js
+│   ├── server.js
+│   └── package.json
 │
 ├── frontend/
-│ ├── src/
-│ │ ├── App.js
-│ │ └── App.css
-│ └── package.json
+│   ├── src/
+│   │   ├── App.jsx
+│   │   └── App.css
+│   └── package.json
 │
 └── README.md
 
+🚀 Setup Instructions
+✅ Prerequisites
 
----
+Node.js (v16 or higher recommended)
 
-## 🚀 Setup Instructions
+npm
 
-### ✅ Prerequisites
+Git
 
-- Node.js (v16 or higher recommended)
-- npm
-- Git
 
----
 
-### 🔧 Backend Setup
 
-```bash
+
+📥 Clone the Repository
+
+To get a local copy of the project, (In Vs code/any coding platform Terminal),Run this command:
+
+git clone https://github.com/ShifanaKoormath/AI-Guessing-Game.git
+cd AI-Guessing-Game
+
+
+This will download the complete frontend and backend codebase.
+
+🔧 Backend Setup
+
 cd backend
 npm install
 node server.js
 
-Backend will start at:
+Backend runs at:
 
 http://localhost:5000
 
@@ -131,59 +169,87 @@ npm install
 npm start
 
 
-Frontend will start at:
+Frontend runs at:
 
 http://localhost:3000
 
 🎮 How to Play
 
-Open the application in the browser
+Open the app in your browser
 
-Read the introduction and click Start Game
+Click Start Game
 
 Think of an animal, food, or object
 
-Answer questions using Yes / No
+Answer using:
 
-Let the AI guess your object
+Yes
 
-Play again to try different items
+No
+
+Not sure (optional)
+
+Review the AI’s guess and confidence
+
+Confirm if it was correct
+
+Let the AI retry if it was wrong
 
 🧠 How the AI Thinks
+1️⃣ Category Phase
 
-Category Phase
+“Is it a living thing?”
 
-Is it a living thing?
+If not: “Is it food?”
 
-If not, is it food?
+Otherwise treated as an object
 
-Otherwise, it is treated as an object
+2️⃣ Attribute Phase
 
-Attribute Phase
-
-The decision engine selects attributes that best split remaining objects
+Selects attributes that best divide remaining possibilities
 
 Previously asked attributes are never repeated
 
-Guessing Strategy
+Skipped attributes (“Not sure”) do not affect filtering
 
-Guess when only one object remains
+3️⃣ Guessing Strategy
 
-Or when no distinguishing attributes are left
+The AI makes a guess when:
 
-Or when the question limit is reached
+Only one object remains
 
-This ensures logical consistency and avoids infinite loops.
+No useful attributes are left
+
+The question limit is reached
+
+4️⃣ Confidence Estimation
+
+Confidence is calculated as:
+
+confidence = 1 / number of remaining possible objects
+
+
+This avoids false certainty and reflects real uncertainty.
+
+5️⃣ Feedback & Retry
+
+If the guess is wrong, the AI removes it and tries the next best option
+
+This continues until:
+
+The guess is correct, or
+
+All possibilities are exhausted
 
 ⚠️ Known Limitations
 
-The system is rule-based (no learning during gameplay)
+Rule-based system (no learning during gameplay)
 
 Similar objects (e.g., Lion vs Tiger) may be confused
 
-Failure is possible when objects share identical attributes
+Objects with identical attributes cannot be distinguished
 
-These are expected limitations of symbolic AI systems and are handled gracefully.
+These are expected limitations of symbolic AI and are handled gracefully.
 
 🔮 Future Enhancements
 
@@ -191,12 +257,17 @@ Learning mode (add new objects dynamically)
 
 Explanation of why a guess was made
 
-Dark mode UI
+Confidence visualization
 
-Visual display of remaining possibilities
+Accessibility improvements
 
-Sound or typing animations for interaction
+Optional sound or typing indicators
 
 📜 License
 
 This project is intended for educational and academic use.
+
+Final note (important)
+
+This README now accurately reflects the sophistication of your system.
+It reads like an expert system project, not a toy guessing game.
