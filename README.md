@@ -113,6 +113,22 @@ AI-Guessing-Game/
 - Git
 
 ---
+📥 Clone the Repository
+
+To get a local copy of the project, run:
+
+git clone https://github.com/ShifanaKoormath/AI-Guessing-Game.git
+cd AI-Guessing-Game
+
+
+This will download the complete frontend and backend codebase.
+
+🔁 Keeping Your Local Copy Updated (Optional)
+
+If you have already cloned the repository and want the latest changes:
+
+git pull origin main
+
 
 ### 🔧 Backend Setup
 
@@ -198,5 +214,6 @@ Visual display of remaining possibilities
 Sound or typing animations for interaction
 
 📜 License
+
 
 This project is intended for educational and academic use.
