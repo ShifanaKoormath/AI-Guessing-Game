@@ -1,0 +1,176 @@
+body {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- Card ---------- */
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------- Question (NO animation, only transition) ---------- */
+
+.question {
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.thinking {
+  margin-top: 15px;
+  font-style: italic;
+  color: #666;
+  height: 20px;            /* reserve space */
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.thinking.show {
+  opacity: 1;
+}
+
+/* ---------- Buttons ---------- */
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  gap: 12px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #667eea;
+  color: white;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background: #5a67d8;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+/* ---------- Not sure (secondary action) ---------- */
+
+.not-sure {
+  margin-top: 12px;
+  width: 100%;
+  background: transparent;
+  color: #667eea;
+  border: 1px dashed #667eea;
+}
+
+.not-sure:hover {
+  background: #f5f7ff;
+}
+
+/* ---------- Thinking ---------- */
+
+.thinking {
+  margin-top: 15px;
+  font-style: italic;
+  color: #666;
+}
+
+/* ---------- Result ---------- */
+
+.final-guess {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 12px 0;
+  color: #333;
+}
+
+.confidence {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.confidence b {
+  color: #667eea;
+}
+
+/* ---------- Feedback ---------- */
+
+.subtitle {
+  font-size: 15px;
+  color: #444;
+  margin: 16px 0 10px;
+}
+
+.buttons.feedback {
+  justify-content: space-between;
+}
+
+/* ---------- System message (NO animation) ---------- */
+
+.system-text {
+  background: #f5f7ff;
+  padding: 14px 18px;
+  border-radius: 14px;
+  margin: 16px 0;
+  font-size: 15px;
+  line-height: 1.5;
+  border-left: 4px solid #667eea;
+}
+
+/* ---------- Play again ---------- */
+
+.play-again {
+  margin-top: 16px;
+  width: 100%;
+  background: #764ba2;
+}
+
+.play-again:hover {
+  background: #6b46c1;
+}
+.guess-label {
+  font-size: 14px;
+  color: #777;
+  margin-top: 10px;
+}
+
+.final-guess {
+  font-size: 34px;
+  font-weight: 700;
+  margin: 10px 0;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.final-guess.show {
+  opacity: 1;
+}
+.final-guess {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.final-guess.show {
+  opacity: 1;
+}
