@@ -16,6 +16,9 @@ function App() {
   const [guessVisible, setGuessVisible] = useState(true);
   const [loading, setLoading] = useState(false);
 
+  // 🔴 NEW
+  const [clarification, setClarification] = useState("");
+
   // ---------- START ----------
   const startGame = async () => {
     const res = await fetch("http://localhost:5000/game/start", {
@@ -25,6 +28,7 @@ function App() {
 
     setQuestion(data.question);
     setQuestionNumber(data.questionNumber);
+    setClarification("");
     setStage("game");
   };
 
@@ -40,7 +44,25 @@ function App() {
 
     const data = await res.json();
 
+    // 🔴 CLARIFICATION HANDLING
+    if (data.status === "clarify") {
+      setClarification(data.message);
+      setLoading(false);
+      return; // do NOT advance question
+    }
+
+    // 🔴 EARLY TERMINATION (category failure)
+    if (data.status === "done" && !data.guess) {
+      setFeedbackMessage(data.message);
+      setStage("result");
+      setAwaitingFeedback(false);
+      setLoading(false);
+      return;
+    }
+
+    // ---------- GUESS ----------
     if (data.status === "guess") {
+      setClarification("");
       setGuessVisible(false);
 
       setTimeout(() => {
@@ -51,7 +73,10 @@ function App() {
 
       setAwaitingFeedback(true);
       setStage("result");
-    } else {
+    }
+    // ---------- NEXT QUESTION ----------
+    else {
+      setClarification("");
       setQuestion(data.question);
       setQuestionNumber(data.questionNumber);
     }
@@ -95,6 +120,7 @@ function App() {
     setConfidence(0);
     setFeedbackMessage("");
     setTransitionMessage("");
+    setClarification("");
   };
 
   // ---------- UI ----------
@@ -113,6 +139,13 @@ function App() {
           <>
             <h2>Question {questionNumber} / 15</h2>
             <p className="question">{question}</p>
+
+            {/* 🔴 Clarification message */}
+            {clarification && (
+              <p className="clarification">
+                {clarification}
+              </p>
+            )}
 
             <div className="buttons">
               <button onClick={() => sendAnswer(true)}>Yes 👍</button>
@@ -138,19 +171,23 @@ function App() {
               <div className="system-text">{transitionMessage}</div>
             )}
 
-            <div className="guess-label">🤖 My Guess</div>
+            {guess && (
+              <>
+                <div className="guess-label">🤖 My Guess</div>
 
-            <div
-              className={`final-guess ${
-                guessVisible ? "show" : ""
-              }`}
-            >
-              {guess}
-            </div>
+                <div
+                  className={`final-guess ${
+                    guessVisible ? "show" : ""
+                  }`}
+                >
+                  {guess}
+                </div>
 
-            <p className="confidence">
-              Confidence: <b>{confidence}%</b>
-            </p>
+                <p className="confidence">
+                  Confidence: <b>{confidence}%</b>
+                </p>
+              </>
+            )}
 
             {awaitingFeedback && (
               <>

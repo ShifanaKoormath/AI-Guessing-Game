@@ -1,200 +1,291 @@
 const fs = require("fs");
+const path = require("path");
 
-// ================= ATTRIBUTES =================
+/* ================= BASE ATTRIBUTES ================= */
 
+// ---------- ANIMALS ----------
 const baseAnimal = {
   isMammal: false,
   isBird: false,
   isReptile: false,
-  isAquatic: false,
-  canFly: false,
-  isPet: false,
-  isWild: true,
+  isFish: false,
+  isInsect: false,
+
+  livesOnLand: false,
+  livesInWater: false,
+  livesInAir: false,
+
+  isDomestic: false,
+  isWild: false,
+
   isHerbivore: false,
   isCarnivore: false,
   isOmnivore: false,
-  isVenomous: false,
+
+  isPredator: false,
+  isNocturnal: false,
+
+  hasFur: false,
+  hasFeathers: false,
+  hasScales: false,
+  hasWings: false,
+  hasHorns: false,
+  hasStripes: false,
+
+  canBite: false,
+  canSting: false,
+  feedsOnBlood: false,
+
+  isTiny: false,
+  isMedium: false,
   isLarge: false
 };
 
+// ---------- FOOD ----------
 const baseFood = {
+  isFruit: false,
+  isStaple: false,
+  isDairy: false,
+  isProcessed: false,
+
   isSweet: false,
   isSalty: false,
-  isSpicy: false,
-  isCooked: false,
-  isVegetarian: true,
-  isFruit: false,
+
+  eatenRaw: false,
+  eatenCooked: false,
+  baked: false,
+
   isLiquid: false,
-  isDairy: false,
   isFrozen: false,
-  isStaple: false
+
+  isPlantBased: false,
+  isAnimalBased: false,
+
+  servedHot: false,
+  servedCold: false,
+
+  hasSeeds: false,
+  hasThickPeel: false,
+
+  // 🔑 discriminators
+  isGrainDish: false,
+  isBreadType: false
 };
 
+// ---------- OBJECTS ----------
 const baseObject = {
   isElectronic: false,
-  usesElectricity: false,
-  isPortable: false,
-  isFurniture: false,
   isAppliance: false,
-  isTool: false,
-  hasScreen: false,
-  hasButtons: false,
+  isFurniture: false,
   isVehicle: false,
-  isHeavy: false
+
+  usesElectricity: false,
+  usesFuel: false,
+  usesHumanPower: false,
+
+  hasScreen: false,
+  hasKeyboard: false,
+  hasButtons: false,
+  hasTouchInput: false,
+
+  usedForCommunication: false,
+  usedForWork: false,
+  usedForEntertainment: false,
+  usedForTransport: false,
+  usedForCooking: false,
+
+  fullyPortable: false,
+  semiPortable: false,
+  fixedInPlace: false,
+
+  hasEngine: false,
+  hasPedals: false,
+  numberOfWheels: 0,
+
+  // 🔑 discriminators
+  isForCooling: false,
+  isForHeating: false,
+  usedForSitting: false,
+  usedForPlacingItems: false
 };
 
-// ================= DATA SOURCES =================
+/* ================= DATA ================= */
 
-// Animals
+// ---------- ANIMALS ----------
 const animals = [
-  ["Cat", { isMammal: true, isPet: true, isCarnivore: true }],
-  ["Dog", { isMammal: true, isPet: true, isOmnivore: true, isLarge: true }],
-  ["Cow", { isMammal: true, isHerbivore: true, isLarge: true }],
-  ["Goat", { isMammal: true, isHerbivore: true }],
-  ["Sheep", { isMammal: true, isHerbivore: true }],
-  ["Horse", { isMammal: true, isHerbivore: true, isLarge: true }],
-  ["Buffalo", { isMammal: true, isHerbivore: true, isLarge: true }],
-  ["Pig", { isMammal: true, isOmnivore: true }],
-
-  ["Lion", { isMammal: true, isCarnivore: true, isWild: true, isLarge: true }],
-  ["Tiger", { isMammal: true, isCarnivore: true, isWild: true, isLarge: true }],
-  ["Leopard", { isMammal: true, isCarnivore: true, isWild: true }],
-  ["Cheetah", { isMammal: true, isCarnivore: true, isWild: true }],
-  ["Elephant", { isMammal: true, isHerbivore: true, isWild: true, isLarge: true }],
-  ["Bear", { isMammal: true, isOmnivore: true, isWild: true, isLarge: true }],
-  ["Deer", { isMammal: true, isHerbivore: true, isWild: true }],
-  ["Monkey", { isMammal: true, isOmnivore: true, isWild: true }],
-
-  ["Eagle", { isBird: true, canFly: true, isCarnivore: true }],
-  ["Parrot", { isBird: true, canFly: true, isPet: true, isHerbivore: true }],
-  ["Sparrow", { isBird: true, canFly: true }],
-  ["Crow", { isBird: true, canFly: true, isOmnivore: true }],
-  ["Pigeon", { isBird: true, canFly: true }],
-  ["Owl", { isBird: true, canFly: true, isCarnivore: true }],
-  ["Peacock", { isBird: true, canFly: true }],
-
-  ["Snake", { isReptile: true, isCarnivore: true, isVenomous: true }],
-  ["Lizard", { isReptile: true }],
-  ["Crocodile", { isReptile: true, isAquatic: true, isCarnivore: true, isLarge: true }],
-  ["Turtle", { isReptile: true, isAquatic: true }],
-
-  ["Fish", { isAquatic: true }],
-  ["Shark", { isAquatic: true, isCarnivore: true, isLarge: true }],
-  ["Dolphin", { isAquatic: true, isMammal: true }],
-  ["Whale", { isAquatic: true, isMammal: true, isLarge: true }],
-  ["Octopus", { isAquatic: true }],
-
-  ["Ant", { isSmall: true }],
-  ["Bee", { isSmall: true }],
-  ["Butterfly", { isSmall: true }],
-  ["Mosquito", { isSmall: true }]
+  ["Dog", {
+    isMammal: true, livesOnLand: true, isDomestic: true,
+    isOmnivore: true, hasFur: true, canBite: true, isMedium: true
+  }],
+  ["Cat", {
+    isMammal: true, livesOnLand: true, isDomestic: true,
+    isCarnivore: true, hasFur: true, canBite: true, isMedium: true
+  }],
+  ["Cow", {
+    isMammal: true, livesOnLand: true, isDomestic: true,
+    isHerbivore: true, hasHorns: true, isLarge: true
+  }],
+  ["Goat", {
+    isMammal: true, livesOnLand: true, isDomestic: true,
+    isHerbivore: true, hasHorns: true, isMedium: true
+  }],
+  ["Lion", {
+    isMammal: true, livesOnLand: true, isWild: true,
+    isCarnivore: true, isPredator: true, isLarge: true
+  }],
+  ["Tiger", {
+    isMammal: true, livesOnLand: true, isWild: true,
+    isCarnivore: true, isPredator: true, hasStripes: true, isLarge: true
+  }],
+  ["Eagle", {
+    isBird: true, livesInAir: true,
+    isCarnivore: true, isPredator: true,
+    hasFeathers: true, hasWings: true, isMedium: true
+  }],
+  ["Owl", {
+    isBird: true, livesInAir: true,
+    isCarnivore: true, isNocturnal: true,
+    hasFeathers: true, hasWings: true, isMedium: true
+  }],
+  ["Snake", {
+    isReptile: true, livesOnLand: true,
+    isCarnivore: true, hasScales: true, canBite: true
+  }],
+  ["Fish", {
+    isFish: true, livesInWater: true, isMedium: true
+  }],
+  ["Ant", {
+    isInsect: true, livesOnLand: true, isTiny: true
+  }],
+  ["Bee", {
+    isInsect: true, livesInAir: true,
+    hasWings: true, canSting: true, isTiny: true
+  }],
+  ["Butterfly", {
+    isInsect: true, livesInAir: true,
+    hasWings: true, isTiny: true
+  }],
+  ["Mosquito", {
+    isInsect: true, livesInAir: true,
+    hasWings: true, feedsOnBlood: true, isTiny: true
+  }]
 ];
 
-
-// Foods
+// ---------- FOOD ----------
 const foods = [
-  ["Apple", { isSweet: true, isFruit: true }],
-  ["Banana", { isSweet: true, isFruit: true }],
-  ["Orange", { isSweet: true, isFruit: true }],
-  ["Mango", { isSweet: true, isFruit: true }],
-  ["Grapes", { isSweet: true, isFruit: true }],
-  ["Papaya", { isSweet: true, isFruit: true }],
-  ["Watermelon", { isSweet: true, isFruit: true }],
-  ["Pineapple", { isSweet: true, isFruit: true }],
-
-  ["Rice", { isCooked: true, isStaple: true }],
-  ["Wheat", { isStaple: true }],
-  ["Bread", { isCooked: true, isStaple: true, isSalty: true }],
-  ["Chapati", { isCooked: true, isStaple: true }],
-  ["Noodles", { isCooked: true }],
-  ["Pasta", { isCooked: true }],
-
-  ["Potato", { isCooked: true }],
-  ["Tomato", { isVegetarian: true }],
-  ["Onion", { isVegetarian: true }],
-  ["Carrot", { isVegetarian: true }],
-  ["Cabbage", { isVegetarian: true }],
-  ["Cauliflower", { isVegetarian: true }],
-
-  ["Milk", { isLiquid: true, isDairy: true }],
-  ["Curd", { isDairy: true }],
-  ["Butter", { isDairy: true }],
-  ["Cheese", { isDairy: true }],
-  ["Paneer", { isDairy: true }],
-
-  ["Egg", { isVegetarian: false }],
-  ["Chicken", { isVegetarian: false }],
-  ["Fish Curry", { isVegetarian: false, isCooked: true }],
-  ["Mutton", { isVegetarian: false }],
-
-  ["Ice Cream", { isSweet: true, isFrozen: true, isDairy: true }],
-  ["Chocolate", { isSweet: true }],
-  ["Biscuit", { isSweet: true }],
-  ["Cake", { isSweet: true }],
-
-  ["Juice", { isLiquid: true, isSweet: true }],
-  ["Tea", { isLiquid: true, isCooked: true }],
-  ["Coffee", { isLiquid: true, isCooked: true }],
-  ["Water", { isLiquid: true }],
-
-  ["Pizza", { isCooked: true, isSalty: true }],
-  ["Burger", { isCooked: true, isSalty: true }],
-  ["Sandwich", { isCooked: true }]
+  ["Apple", {
+    isFruit: true, isPlantBased: true,
+    isSweet: true, eatenRaw: true, hasSeeds: true
+  }],
+  ["Banana", {
+    isFruit: true, isPlantBased: true,
+    isSweet: true, eatenRaw: true, hasThickPeel: true
+  }],
+  ["Orange", {
+    isFruit: true, isPlantBased: true,
+    isSweet: true, hasSeeds: true, hasThickPeel: true
+  }],
+  ["Rice", {
+    isStaple: true, isPlantBased: true,
+    eatenCooked: true, servedHot: true,
+    isGrainDish: true
+  }],
+  ["Chapati", {
+    isStaple: true, isPlantBased: true,
+    eatenCooked: true, servedHot: true,
+    isBreadType: true
+  }],
+  ["Bread", {
+    isStaple: true, isPlantBased: true,
+    baked: true, eatenCooked: true,
+    isBreadType: true
+  }],
+  ["Milk", {
+    isDairy: true, isAnimalBased: true,
+    isLiquid: true, servedCold: true
+  }],
+  ["Ice Cream", {
+    isDairy: true, isProcessed: true,
+    isSweet: true, isFrozen: true, servedCold: true
+  }],
+  ["Pizza", {
+    isProcessed: true, isSalty: true,
+    baked: true, eatenCooked: true, servedHot: true
+  }],
+  ["Burger", {
+    isProcessed: true, isSalty: true,
+    eatenCooked: true, servedHot: true
+  }],
+  ["Sandwich", {
+    isProcessed: true, eatenCooked: true
+  }],
+  ["Pasta", {
+    isProcessed: true, eatenCooked: true, servedHot: true
+  }]
 ];
 
-
-// Objects
+// ---------- OBJECTS ----------
 const objects = [
-  ["Mobile Phone", { isElectronic: true, usesElectricity: true, isPortable: true, hasScreen: true }],
-  ["Laptop", { isElectronic: true, usesElectricity: true, isPortable: true, hasScreen: true, isHeavy: true }],
-  ["Tablet", { isElectronic: true, usesElectricity: true, isPortable: true, hasScreen: true }],
-  ["Desktop", { isElectronic: true, usesElectricity: true, hasScreen: true, isHeavy: true }],
-  ["Television", { isElectronic: true, usesElectricity: true, hasScreen: true }],
-
-  ["Fan", { isAppliance: true, usesElectricity: true }],
-  ["Refrigerator", { isAppliance: true, usesElectricity: true, isHeavy: true }],
-  ["Washing Machine", { isAppliance: true, usesElectricity: true, isHeavy: true }],
-  ["Microwave", { isAppliance: true, usesElectricity: true }],
-  ["Air Conditioner", { isAppliance: true, usesElectricity: true, isHeavy: true }],
-
-  ["Chair", { isFurniture: true, isPortable: true }],
-  ["Table", { isFurniture: true, isHeavy: true }],
-  ["Sofa", { isFurniture: true, isHeavy: true }],
-  ["Bed", { isFurniture: true, isHeavy: true }],
-  ["Cupboard", { isFurniture: true, isHeavy: true }],
-
-  ["Bottle", { isPortable: true }],
-  ["Bag", { isPortable: true }],
-  ["Wallet", { isPortable: true }],
-  ["Watch", { isPortable: true }],
-  ["Glasses", { isPortable: true }],
-
-  ["Pen", { isTool: true, isPortable: true }],
-  ["Pencil", { isTool: true, isPortable: true }],
-  ["Eraser", { isTool: true, isPortable: true }],
-  ["Book", { isPortable: true }],
-  ["Notebook", { isPortable: true }],
-
-  ["Camera", { isElectronic: true, isPortable: true, hasButtons: true }],
-  ["Headphones", { isElectronic: true, isPortable: true }],
-  ["Speaker", { isElectronic: true }],
-  ["Charger", { usesElectricity: true }],
-  ["Power Bank", { isElectronic: true, isPortable: true }],
-
-  ["Car", { isVehicle: true, isHeavy: true }],
-  ["Bike", { isVehicle: true }],
-  ["Bicycle", { isVehicle: true }],
-  ["Bus", { isVehicle: true, isHeavy: true }],
-  ["Train", { isVehicle: true, isHeavy: true }]
+  ["Mobile Phone", {
+    isElectronic: true, usesElectricity: true,
+    hasScreen: true, hasTouchInput: true,
+    usedForCommunication: true, fullyPortable: true
+  }],
+  ["Laptop", {
+    isElectronic: true, usesElectricity: true,
+    hasScreen: true, hasKeyboard: true,
+    usedForWork: true, semiPortable: true
+  }],
+  ["Desktop", {
+    isElectronic: true, usesElectricity: true,
+    hasScreen: true, hasKeyboard: true,
+    usedForWork: true, fixedInPlace: true
+  }],
+  ["Television", {
+    isElectronic: true, usesElectricity: true,
+    hasScreen: true,
+    usedForEntertainment: true, fixedInPlace: true
+  }],
+  ["Refrigerator", {
+    isAppliance: true, usesElectricity: true,
+    fixedInPlace: true,
+    isForCooling: true
+  }],
+  ["Microwave", {
+    isAppliance: true, usesElectricity: true,
+    fixedInPlace: true,
+    isForHeating: true
+  }],
+  ["Fan", {
+    isAppliance: true, usesElectricity: true,
+    fixedInPlace: true
+  }],
+  ["Chair", {
+    isFurniture: true, fixedInPlace: true,
+    usedForSitting: true
+  }],
+  ["Table", {
+    isFurniture: true, fixedInPlace: true,
+    usedForPlacingItems: true
+  }],
+  ["Bicycle", {
+    isVehicle: true, usesHumanPower: true,
+    hasPedals: true, numberOfWheels: 2,
+    usedForTransport: true
+  }],
+  ["Car", {
+    isVehicle: true, usesFuel: true,
+    hasEngine: true, numberOfWheels: 4,
+    usedForTransport: true
+  }]
 ];
 
+/* ================= GENERATION ================= */
 
-// ================= GENERATION =================
-
-function generate(domain, list, base) {
+function generate(category, list, base) {
   return list.map(([name, overrides]) => ({
     name,
-    category: domain,
+    category,
     attributes: { ...base, ...overrides }
   }));
 }
@@ -207,9 +298,7 @@ const knowledgeBase = {
   ]
 };
 
-fs.writeFileSync(
-  "../data/knowledgeBase.json",
-  JSON.stringify(knowledgeBase, null, 2)
-);
+const outputPath = path.join(__dirname, "..", "data", "knowledgeBase.json");
+fs.writeFileSync(outputPath, JSON.stringify(knowledgeBase, null, 2));
 
-console.log("knowledgeBase.json generated successfully");
+console.log("✅ knowledgeBase.json generated (dense, separable, validated)");

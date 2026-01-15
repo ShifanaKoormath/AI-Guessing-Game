@@ -5,6 +5,11 @@ const knowledgeBase = require("../data/knowledgeBase.json");
 const { selectBestQuestion } = require("../logic/decisionEngine");
 const { selectBestGuess } = require("../logic/confidenceEngine");
 const { formatQuestion } = require("../logic/questionFormatter");
+const DIET_ATTRIBUTES = [
+  "isCarnivore",
+  "isHerbivore",
+  "isOmnivore"
+];
 
 const MAX_QUESTIONS = 15;
 let gameState = null;
@@ -13,12 +18,14 @@ let gameState = null;
 router.post("/start", (req, res) => {
   gameState = {
     phase: "category",
+     lockedCategory: null,
     remainingObjects: [...knowledgeBase.objects],
     askedAttributes: [],
     currentAttribute: null,
     questionCount: 0,
     categoryStep: 0,
-    lastConfidence: 0
+    lastConfidence: 0,
+     categoryRetryCount: 0
   };
 
   return res.json({
@@ -36,32 +43,95 @@ router.post("/answer", (req, res) => {
   const answer = req.body.answer; // true | false | null
 
   // ================= CATEGORY PHASE =================
-  if (gameState.phase === "category") {
-    gameState.questionCount++;
+// ================= CATEGORY PHASE =================
+// ===== CATEGORY NOT-SURE GUARD =====
+if (
+  gameState.phase === "category" &&
+  answer === null
+) {
+  gameState.categoryRetryCount++;
 
-    if (gameState.categoryStep === 0) {
-      if (answer === true) {
-        gameState.remainingObjects =
-          gameState.remainingObjects.filter(o => o.category === "Animal");
-        gameState.phase = "attributes";
-      } else if (answer === false) {
-        gameState.categoryStep = 1;
-        return res.json({
-          question: "Is it food?",
-          questionNumber: gameState.questionCount + 1
-        });
-      }
-    } else {
-      if (answer === true) {
-        gameState.remainingObjects =
-          gameState.remainingObjects.filter(o => o.category === "Food");
-      } else if (answer === false) {
-        gameState.remainingObjects =
-          gameState.remainingObjects.filter(o => o.category === "Object");
-      }
+  // First time → clarify and re-ask
+  if (gameState.categoryRetryCount === 1) {
+    return res.json({
+      status: "clarify",
+      message:
+        "Please try to answer this question. It helps me understand what kind of thing you are thinking of.\n" +
+        "(If it's an animal or plant, answer Yes. If it's food or an object, answer No.)"
+    });
+  }
+
+  // Second time → abort cleanly
+  return res.json({
+    status: "done",
+    message:
+      "I’m having trouble understanding the object. Please think of a clear, concrete thing and start again."
+  });
+}
+// ================= CATEGORY PHASE =================
+if (gameState.phase === "category") {
+  gameState.questionCount++;
+
+  const CATEGORY_ATTRIBUTES = [
+    "isFood",
+    "isElectronic",
+    "isAppliance",
+    "isVehicle"
+  ];
+
+  // Q1: Is it a living thing?
+  if (gameState.categoryStep === 0) {
+    if (answer === true) {
+      // 🔒 LOCK Animal
+      gameState.lockedCategory = "Animal";
+      gameState.remainingObjects =
+        gameState.remainingObjects.filter(o => o.category === "Animal");
+
+      // 🚫 Block category attributes forever
+      CATEGORY_ATTRIBUTES.forEach(attr => {
+        if (!gameState.askedAttributes.includes(attr)) {
+          gameState.askedAttributes.push(attr);
+        }
+      });
+
+      gameState.categoryRetryCount = 0; // reset retry
       gameState.phase = "attributes";
     }
+    else if (answer === false) {
+      gameState.categoryStep = 1;
+      return res.json({
+        question: "Is it food?",
+        questionNumber: gameState.questionCount + 1
+      });
+    }
   }
+
+  // Q2: Is it food?
+  else if (gameState.categoryStep === 1) {
+    if (answer === true) {
+      // 🔒 LOCK Food
+      gameState.lockedCategory = "Food";
+      gameState.remainingObjects =
+        gameState.remainingObjects.filter(o => o.category === "Food");
+    }
+    else if (answer === false) {
+      // 🔒 LOCK Object
+      gameState.lockedCategory = "Object";
+      gameState.remainingObjects =
+        gameState.remainingObjects.filter(o => o.category === "Object");
+    }
+
+    // 🚫 Block category attributes forever
+    CATEGORY_ATTRIBUTES.forEach(attr => {
+      if (!gameState.askedAttributes.includes(attr)) {
+        gameState.askedAttributes.push(attr);
+      }
+    });
+
+    gameState.categoryRetryCount = 0; // reset retry
+    gameState.phase = "attributes";
+  }
+}
 
   // ================= ATTRIBUTE PHASE =================
 
@@ -76,6 +146,19 @@ router.post("/answer", (req, res) => {
         obj => obj.attributes[gameState.currentAttribute] === answer
       );
   }
+// ===== DIET SHORT-CIRCUIT =====
+if (
+  gameState.phase === "attributes" &&
+  answer !== null &&
+  DIET_ATTRIBUTES.includes(gameState.currentAttribute)
+) {
+  // Mark all diet attributes as asked so they won't be asked again
+  DIET_ATTRIBUTES.forEach(attr => {
+    if (!gameState.askedAttributes.includes(attr)) {
+      gameState.askedAttributes.push(attr);
+    }
+  });
+}
 
   // Guess if done
   if (
@@ -92,13 +175,25 @@ router.post("/answer", (req, res) => {
       confidence: guess.confidence
     });
   }
-
-  // Ask next attribute
-  if (gameState.phase === "attributes") {
-    const nextAttr = selectBestQuestion(
-      gameState.remainingObjects,
-      gameState.askedAttributes
+// ===== ENFORCE CATEGORY LOCK =====
+if (
+  gameState.phase === "attributes" &&
+  gameState.lockedCategory
+) {
+  gameState.remainingObjects =
+    gameState.remainingObjects.filter(
+      o => o.category === gameState.lockedCategory
     );
+}
+
+
+// Ask next attribute
+if (gameState.phase === "attributes") {
+  const nextAttr = selectBestQuestion(
+    gameState.remainingObjects,
+    gameState.askedAttributes
+  );
+
 
     if (!nextAttr) {
       const guess = selectBestGuess(gameState.remainingObjects);
@@ -114,9 +209,11 @@ router.post("/answer", (req, res) => {
     gameState.currentAttribute = nextAttr;
 
     // Only mark as asked if user answered yes/no
-    if (answer !== null) {
-      gameState.askedAttributes.push(nextAttr);
-    }
+   // Mark attribute as asked REGARDLESS of answer
+if (!gameState.askedAttributes.includes(gameState.currentAttribute)) {
+  gameState.askedAttributes.push(gameState.currentAttribute);
+}
+
 
     gameState.questionCount++;
 

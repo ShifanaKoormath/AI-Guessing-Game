@@ -1,273 +1,234 @@
-AI Guessing Game
-A Rule-Based Expert System (Symbolic AI)
 
-An interactive AI guessing game built using rule-based reasoning where the system asks structured questions and attempts to infer what the user is thinking of.
 
-This project demonstrates symbolic AI, decision-tree reasoning, and human-like problem solving — without machine learning.
 
-📌 Project Overview
+#  AI Guessing Game (Rule-Based Expert System)
 
-The AI Guessing Game works on the same principle as classic “20 Questions” expert systems.
+A web-based AI guessing game where the system identifies an object the user is thinking of by asking a sequence of **yes / no / not sure** questions.
 
-The user thinks of an:
+This project is **not machine-learning based**.
+It is a **deterministic, rule-based expert system** built using a structured Knowledge Base and formal reasoning logic.
 
-🐾 Animal
+---
 
-🍎 Food
+## 📌 Key Idea
 
-🪑 Object
+If the object exists in the Knowledge Base and the user answers consistently,
+👉 **the system will always guess correctly**.
 
-The system then:
+If the object is not in the Knowledge Base,
+👉 the system behaves honestly and may guess with low confidence.
 
-Identifies the broad category
+---
 
-Asks attribute-based questions
+## 🧠 System Architecture
 
-Progressively narrows the search space
+### Backend
 
-Makes a best-effort guess
+* **Node.js + Express**
+* Rule-based decision engine
+* Structured Knowledge Base (JSON)
+* Formal **separability validation**
 
-Accepts feedback and tries again if needed
+### Frontend
 
-The focus is on logic, transparency, and explainability, not prediction or training.
+* **React**
+* Minimal UI
+* Focus on question clarity and reasoning flow
 
-🧠 Core AI Concepts Demonstrated
+---
 
-Symbolic AI (Rule-Based Expert Systems)
+## 🗂 Knowledge Base Design
 
-Decision Tree Reasoning
+The Knowledge Base (KB) is divided into **three top-level categories**:
 
-Attribute Elimination
+* **Animal**
+* **Food**
+* **Object**
 
-Search Space Reduction
+Each object contains:
 
-Confidence Estimation from Uncertainty
+* `name`
+* `category`
+* `attributes` (boolean / numeric)
 
-Human-aligned Question Flow
+Example:
 
-Deterministic Inference (No randomness, no ML)
+```json
+{
+  "name": "Bicycle",
+  "category": "Object",
+  "attributes": {
+    "isVehicle": true,
+    "usesHumanPower": true,
+    "hasPedals": true,
+    "numberOfWheels": 2
+  }
+}
+```
 
-✨ Features Implemented (v1.0)
+---
 
-✅ Category-first reasoning (Living → Food → Object)
+## 🔑 Core Design Principles
 
-✅ Large, structured knowledge base (156 entries)
+* Deterministic reasoning (no randomness)
+* Human-answerable questions
+* No repeated or looping questions
+* Category locking to prevent cross-domain confusion
+* Honest confidence scoring
+* Provable correctness via validation scripts
 
-✅ Intelligent question selection (balanced attribute splits)
+---
 
-✅ No repeated or meaningless questions
+## 🔒 Category Locking
 
-✅ “Not sure” option for uncertain user responses
+The system starts with **base category questions**:
 
-✅ Honest confidence estimation based on remaining possibilities
+1. Is it a living thing?
+2. Is it food?
+3. Otherwise → Object
 
-✅ Retry logic when the first guess is wrong
+Once a category is determined:
 
-✅ Friendly, conversational UI
+* The category is **locked**
+* Cross-category questions are permanently blocked
+* Only relevant attributes are considered
 
-✅ Smooth, stable transitions (no flashing or layout jumps)
+This prevents illogical flows like:
 
-✅ Fully explainable and deterministic logic
+> “Is it an animal?” → “Is it electronic?”
 
-📊 Knowledge Base Summary
+---
 
-The knowledge base is programmatically generated and structured using shared attribute schemas.
+## 🤷 Handling “Not Sure” Answers
 
-Category	Entries
-Animals	52
-Foods	52
-Objects	52
-Total	156
+### Allowed
 
-Each entity is represented as:
+* Physical traits (e.g., has horns, has fur)
+* Size, texture, form
+* Secondary attributes
 
-A category
+### Not Allowed
 
-A fixed set of boolean attributes
+* Base category questions
 
-This ensures consistency and predictable reasoning.
+If the user answers **“Not sure”** to a base category:
 
-🛠 Tech Stack
-Frontend
+* The system asks for clarification once
+* If ambiguity persists, the game **ends gracefully**
 
-React (Create React App)
+This prevents undefined reasoning.
 
-JavaScript (ES6)
+---
 
-HTML & CSS
+## 🧪 Separability Validation
 
-Fetch API
+A custom script verifies that **every pair of objects in the same category is distinguishable**.
 
-Backend
+### Script
 
-Node.js
+```bash
+node scripts/checkSeparability.js
+```
 
-Express.js
+### Purpose
 
-JSON-based Knowledge Base
+* Detects indistinguishable objects
+* Forces addition of **minimal, meaningful discriminators**
+* Prevents false confidence
 
-Custom Decision & Confidence Engines
+Example fixes:
 
-📂 Project Structure
-AI-Guessing-Game/
-├── backend/
-│   ├── data/
-│   │   └── knowledgeBase.json
-│   ├── logic/
-│   │   ├── decisionEngine.js
-│   │   ├── confidenceEngine.js
-│   │   └── questionFormatter.js
-│   ├── routes/
-│   │   └── gameRoutes.js
-│   ├── server.js
-│   └── package.json
-│
-├── frontend/
-│   ├── src/
-│   │   ├── App.jsx
-│   │   └── App.css
-│   └── package.json
-│
-└── README.md
+* Rice ↔ Chapati → `isGrainDish` vs `isBreadType`
+* Refrigerator ↔ Microwave → `isForCooling` vs `isForHeating`
+* Chair ↔ Table → `usedForSitting` vs `usedForPlacingItems`
 
-🚀 Setup Instructions
-✅ Prerequisites
+---
 
-Node.js (v16 or higher recommended)
+## 📈 Knowledge Base Expansion Strategy
 
-npm
+The KB is expanded **horizontally**, not vertically.
 
-Git
+* Add similar objects first
+* Let validation reveal missing discriminators
+* Add only **human-understandable attributes**
+* Re-validate after every expansion
 
+This prevents:
 
+* Early guessing
+* One-object “buckets”
+* Unrealistic attributes
 
+---
 
+## 🧪 Recommended Tests
 
-📥 Clone the Repository
+* Base category ambiguity test
+* Category lock regression test
+* Repeated “Not sure” test
+* Dense cluster test (Pizza / Burger / Sandwich)
+* Near-twin objects (Chair vs Table)
+* Wrong guess recovery
+* Unknown object behavior
 
-To get a local copy of the project, (In Vs code/any coding platform Terminal),Run this command:
+---
 
-git clone https://github.com/ShifanaKoormath/AI-Guessing-Game.git
-cd AI-Guessing-Game
+## ⚠️ Limitations
 
+* No learning or self-updating KB
+* No NLP or free-text input
+* Requires honest user responses
+* Unknown objects may lead to incorrect guesses (by design)
 
-This will download the complete frontend and backend codebase.
+---
 
-🔧 Backend Setup
+## 🎓 Academic Relevance
 
+This project demonstrates:
+
+* Expert system design
+* Knowledge engineering
+* Deterministic reasoning
+* Formal validation
+* UX-aware system logic
+
+It is suitable for:
+
+* AI fundamentals
+* Knowledge-based systems
+* Rule-based reasoning coursework
+
+---
+
+## 🚀 How to Run
+
+### Backend
+
+```bash
 cd backend
 npm install
-node server.js
+node scripts/generateKnowledgeBase.js
+node scripts/checkSeparability.js
+npm start
+```
 
-Backend runs at:
+### Frontend
 
-http://localhost:5000
-
-🎨 Frontend Setup
+```bash
 cd frontend
 npm install
 npm start
+```
+
+---
+
+## 🧾 Final Note
+
+This project prioritizes **correctness, explainability, and honesty** over flashy AI claims.
+
+It behaves predictably, fails safely, and can be formally validated —
+which is exactly how a real expert system should work.
+
+---
 
 
-Frontend runs at:
-
-http://localhost:3000
-
-🎮 How to Play
-
-Open the app in your browser
-
-Click Start Game
-
-Think of an animal, food, or object
-
-Answer using:
-
-Yes
-
-No
-
-Not sure (optional)
-
-Review the AI’s guess and confidence
-
-Confirm if it was correct
-
-Let the AI retry if it was wrong
-
-🧠 How the AI Thinks
-1️⃣ Category Phase
-
-“Is it a living thing?”
-
-If not: “Is it food?”
-
-Otherwise treated as an object
-
-2️⃣ Attribute Phase
-
-Selects attributes that best divide remaining possibilities
-
-Previously asked attributes are never repeated
-
-Skipped attributes (“Not sure”) do not affect filtering
-
-3️⃣ Guessing Strategy
-
-The AI makes a guess when:
-
-Only one object remains
-
-No useful attributes are left
-
-The question limit is reached
-
-4️⃣ Confidence Estimation
-
-Confidence is calculated as:
-
-confidence = 1 / number of remaining possible objects
-
-
-This avoids false certainty and reflects real uncertainty.
-
-5️⃣ Feedback & Retry
-
-If the guess is wrong, the AI removes it and tries the next best option
-
-This continues until:
-
-The guess is correct, or
-
-All possibilities are exhausted
-
-⚠️ Known Limitations
-
-Rule-based system (no learning during gameplay)
-
-Similar objects (e.g., Lion vs Tiger) may be confused
-
-Objects with identical attributes cannot be distinguished
-
-These are expected limitations of symbolic AI and are handled gracefully.
-
-🔮 Future Enhancements
-
-Learning mode (add new objects dynamically)
-
-Explanation of why a guess was made
-
-Confidence visualization
-
-Accessibility improvements
-
-Optional sound or typing indicators
-
-📜 License
-
-This project is intended for educational and academic use.
-
-Final note (important)
-
-This README now accurately reflects the sophistication of your system.
-It reads like an expert system project, not a toy guessing game.
