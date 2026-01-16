@@ -199,6 +199,72 @@
       }
     },
     {
+      "name": "Elephant",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": true,
+        "isBird": false,
+        "isReptile": false,
+        "isFish": false,
+        "isInsect": false,
+        "livesOnLand": true,
+        "livesInWater": false,
+        "livesInAir": false,
+        "isDomestic": false,
+        "isWild": true,
+        "isHerbivore": true,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isPredator": false,
+        "isNocturnal": false,
+        "hasFur": false,
+        "hasFeathers": false,
+        "hasScales": false,
+        "hasWings": false,
+        "hasHorns": false,
+        "hasStripes": false,
+        "canBite": false,
+        "canSting": false,
+        "feedsOnBlood": false,
+        "isTiny": false,
+        "isMedium": false,
+        "isLarge": true
+      }
+    },
+    {
+      "name": "Horse",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": true,
+        "isBird": false,
+        "isReptile": false,
+        "isFish": false,
+        "isInsect": false,
+        "livesOnLand": true,
+        "livesInWater": false,
+        "livesInAir": false,
+        "isDomestic": true,
+        "isWild": false,
+        "isHerbivore": true,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isPredator": false,
+        "isNocturnal": false,
+        "hasFur": false,
+        "hasFeathers": false,
+        "hasScales": false,
+        "hasWings": false,
+        "hasHorns": false,
+        "hasStripes": false,
+        "canBite": false,
+        "canSting": false,
+        "feedsOnBlood": false,
+        "isTiny": false,
+        "isMedium": false,
+        "isLarge": true
+      }
+    },
+    {
       "name": "Eagle",
       "category": "Animal",
       "attributes": {
@@ -250,6 +316,72 @@
         "isOmnivore": false,
         "isPredator": false,
         "isNocturnal": true,
+        "hasFur": false,
+        "hasFeathers": true,
+        "hasScales": false,
+        "hasWings": true,
+        "hasHorns": false,
+        "hasStripes": false,
+        "canBite": false,
+        "canSting": false,
+        "feedsOnBlood": false,
+        "isTiny": false,
+        "isMedium": true,
+        "isLarge": false
+      }
+    },
+    {
+      "name": "Parrot",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": false,
+        "isBird": true,
+        "isReptile": false,
+        "isFish": false,
+        "isInsect": false,
+        "livesOnLand": false,
+        "livesInWater": false,
+        "livesInAir": true,
+        "isDomestic": false,
+        "isWild": false,
+        "isHerbivore": true,
+        "isCarnivore": false,
+        "isOmnivore": false,
+        "isPredator": false,
+        "isNocturnal": false,
+        "hasFur": false,
+        "hasFeathers": true,
+        "hasScales": false,
+        "hasWings": true,
+        "hasHorns": false,
+        "hasStripes": false,
+        "canBite": false,
+        "canSting": false,
+        "feedsOnBlood": false,
+        "isTiny": false,
+        "isMedium": true,
+        "isLarge": false
+      }
+    },
+    {
+      "name": "Crow",
+      "category": "Animal",
+      "attributes": {
+        "isMammal": false,
+        "isBird": true,
+        "isReptile": false,
+        "isFish": false,
+        "isInsect": false,
+        "livesOnLand": false,
+        "livesInWater": false,
+        "livesInAir": true,
+        "isDomestic": false,
+        "isWild": false,
+        "isHerbivore": false,
+        "isCarnivore": false,
+        "isOmnivore": true,
+        "isPredator": false,
+        "isNocturnal": false,
         "hasFur": false,
         "hasFeathers": true,
         "hasScales": false,
@@ -455,7 +587,7 @@
         "hasHorns": false,
         "hasStripes": false,
         "canBite": false,
-        "canSting": false,
+        "canSting": true,
         "feedsOnBlood": true,
         "isTiny": true,
         "isMedium": false,
@@ -484,7 +616,12 @@
         "hasSeeds": true,
         "hasThickPeel": false,
         "isGrainDish": false,
-        "isBreadType": false
+        "isBreadType": false,
+        "isRound": true,
+        "isSmallSized": true,
+        "growsInBunches": false,
+        "isSolidSnack": false,
+        "isFingerFood": false
       }
     },
     {
@@ -509,7 +646,12 @@
         "hasSeeds": false,
         "hasThickPeel": true,
         "isGrainDish": false,
-        "isBreadType": false
+        "isBreadType": false,
+        "isRound": false,
+        "isSmallSized": true,
+        "growsInBunches": false,
+        "isSolidSnack": false,
+        "isFingerFood": false
       }
     },
     {
@@ -522,7 +664,7 @@
         "isProcessed": false,
         "isSweet": true,
         "isSalty": false,
-        "eatenRaw": false,
+        "eatenRaw": true,
         "eatenCooked": false,
         "baked": false,
         "isLiquid": false,
@@ -534,7 +676,289 @@
         "hasSeeds": true,
         "hasThickPeel": true,
         "isGrainDish": false,
-        "isBreadType": false
+        "isBreadType": false,
+        "isRound": true,
+        "isSmallSized": true,
+        "growsInBunches": false,
+        "isSolidSnack": false,
+        "isFingerFood": false
+      }
+    },
+    {
+      "name": "Mango",
+      "category": "Food",
+      "attributes": {
+        "isFruit": true,
+        "isStaple": false,
+        "isDairy": false,
+        "isProcessed": false,
+        "isSweet": true,
+        "isSalty": false,
+        "eatenRaw": true,
+        "eatenCooked": false,
+        "baked": false,
+        "isLiquid": false,
+        "isFrozen": false,
+        "isPlantBased": true,
+        "isAnimalBased": false,
+        "servedHot": false,
+        "servedCold": false,
+        "hasSeeds": true,
+        "hasThickPeel": true,
+        "isGrainDish": false,
+        "isBreadType": false,
+        "isRound": false,
+        "isSmallSized": true,
+        "growsInBunches": false,
+        "isSolidSnack": false,
+        "isFingerFood": false
+      }
+    },
+    {
+      "name": "Grapes",
+      "category": "Food",
+      "attributes": {
+        "isFruit": true,
+        "isStaple": false,
+        "isDairy": false,
+        "isProcessed": false,
+        "isSweet": true,
+        "isSalty": false,
+        "eatenRaw": true,
+        "eatenCooked": false,
+        "baked": false,
+        "isLiquid": false,
+        "isFrozen": false,
+        "isPlantBased": true,
+        "isAnimalBased": false,
+        "servedHot": false,
+        "servedCold": false,
+        "hasSeeds": true,
+        "hasThickPeel": false,
+        "isGrainDish": false,
+        "isBreadType": false,
+        "isRound": false,
+        "isSmallSized": true,
+        "growsInBunches": true,
+        "isSolidSnack": false,
+        "isFingerFood": false
+      }
+    },
+    {
+      "name": "Watermelon",
+      "category": "Food",
+      "attributes": {
+        "isFruit": true,
+        "isStaple": false,
+        "isDairy": false,
+        "isProcessed": false,
+        "isSweet": true,
+        "isSalty": false,
+        "eatenRaw": true,
+        "eatenCooked": false,
+        "baked": false,
+        "isLiquid": false,
+        "isFrozen": false,
+        "isPlantBased": true,
+        "isAnimalBased": false,
+        "servedHot": false,
+        "servedCold": false,
+        "hasSeeds": true,
+        "hasThickPeel": false,
+        "isGrainDish": false,
+        "isBreadType": false,
+        "isRound": true,
+        "isSmallSized": false,
+        "growsInBunches": false,
+        "isSolidSnack": false,
+        "isFingerFood": false,
+        "isLarge": true
+      }
+    },
+    {
+      "name": "Pineapple",
+      "category": "Food",
+      "attributes": {
+        "isFruit": true,
+        "isStaple": false,
+        "isDairy": false,
+        "isProcessed": false,
+        "isSweet": true,
+        "isSalty": false,
+        "eatenRaw": true,
+        "eatenCooked": false,
+        "baked": false,
+        "isLiquid": false,
+        "isFrozen": false,
+        "isPlantBased": true,
+        "isAnimalBased": false,
+        "servedHot": false,
+        "servedCold": false,
+        "hasSeeds": false,
+        "hasThickPeel": true,
+        "isGrainDish": false,
+        "isBreadType": false,
+        "isRound": false,
+        "isSmallSized": false,
+        "growsInBunches": false,
+        "isSolidSnack": false,
+        "isFingerFood": false,
+        "isLarge": true
+      }
+    },
+    {
+      "name": "Papaya",
+      "category": "Food",
+      "attributes": {
+        "isFruit": true,
+        "isStaple": false,
+        "isDairy": false,
+        "isProcessed": false,
+        "isSweet": true,
+        "isSalty": false,
+        "eatenRaw": true,
+        "eatenCooked": false,
+        "baked": false,
+        "isLiquid": false,
+        "isFrozen": false,
+        "isPlantBased": true,
+        "isAnimalBased": false,
+        "servedHot": false,
+        "servedCold": false,
+        "hasSeeds": true,
+        "hasThickPeel": false,
+        "isGrainDish": false,
+        "isBreadType": false,
+        "isRound": false,
+        "isSmallSized": false,
+        "growsInBunches": false,
+        "isSolidSnack": false,
+        "isFingerFood": false,
+        "isLarge": true
+      }
+    },
+    {
+      "name": "Guava",
+      "category": "Food",
+      "attributes": {
+        "isFruit": true,
+        "isStaple": false,
+        "isDairy": false,
+        "isProcessed": false,
+        "isSweet": true,
+        "isSalty": false,
+        "eatenRaw": true,
+        "eatenCooked": false,
+        "baked": false,
+        "isLiquid": false,
+        "isFrozen": false,
+        "isPlantBased": true,
+        "isAnimalBased": false,
+        "servedHot": false,
+        "servedCold": false,
+        "hasSeeds": true,
+        "hasThickPeel": false,
+        "isGrainDish": false,
+        "isBreadType": false,
+        "isRound": true,
+        "isSmallSized": true,
+        "growsInBunches": false,
+        "isSolidSnack": false,
+        "isFingerFood": false,
+        "hasManySeeds": true
+      }
+    },
+    {
+      "name": "Strawberry",
+      "category": "Food",
+      "attributes": {
+        "isFruit": true,
+        "isStaple": false,
+        "isDairy": false,
+        "isProcessed": false,
+        "isSweet": true,
+        "isSalty": false,
+        "eatenRaw": true,
+        "eatenCooked": false,
+        "baked": false,
+        "isLiquid": false,
+        "isFrozen": false,
+        "isPlantBased": true,
+        "isAnimalBased": false,
+        "servedHot": false,
+        "servedCold": false,
+        "hasSeeds": true,
+        "hasThickPeel": false,
+        "isGrainDish": false,
+        "isBreadType": false,
+        "isRound": false,
+        "isSmallSized": true,
+        "growsInBunches": false,
+        "isSolidSnack": false,
+        "isFingerFood": false
+      }
+    },
+    {
+      "name": "Kiwi",
+      "category": "Food",
+      "attributes": {
+        "isFruit": true,
+        "isStaple": false,
+        "isDairy": false,
+        "isProcessed": false,
+        "isSweet": true,
+        "isSalty": false,
+        "eatenRaw": true,
+        "eatenCooked": false,
+        "baked": false,
+        "isLiquid": false,
+        "isFrozen": false,
+        "isPlantBased": true,
+        "isAnimalBased": false,
+        "servedHot": false,
+        "servedCold": false,
+        "hasSeeds": true,
+        "hasThickPeel": true,
+        "isGrainDish": false,
+        "isBreadType": false,
+        "isRound": false,
+        "isSmallSized": true,
+        "growsInBunches": false,
+        "isSolidSnack": false,
+        "isFingerFood": false,
+        "hasHairySkin": true
+      }
+    },
+    {
+      "name": "Pomegranate",
+      "category": "Food",
+      "attributes": {
+        "isFruit": true,
+        "isStaple": false,
+        "isDairy": false,
+        "isProcessed": false,
+        "isSweet": true,
+        "isSalty": false,
+        "eatenRaw": true,
+        "eatenCooked": false,
+        "baked": false,
+        "isLiquid": false,
+        "isFrozen": false,
+        "isPlantBased": true,
+        "isAnimalBased": false,
+        "servedHot": false,
+        "servedCold": false,
+        "hasSeeds": true,
+        "hasThickPeel": false,
+        "isGrainDish": false,
+        "isBreadType": false,
+        "isRound": true,
+        "isSmallSized": false,
+        "growsInBunches": false,
+        "isSolidSnack": false,
+        "isFingerFood": false,
+        "hasHardOuterShell": true,
+        "isLarge": true
       }
     },
     {
@@ -559,7 +983,12 @@
         "hasSeeds": false,
         "hasThickPeel": false,
         "isGrainDish": true,
-        "isBreadType": false
+        "isBreadType": false,
+        "isRound": false,
+        "isSmallSized": false,
+        "growsInBunches": false,
+        "isSolidSnack": false,
+        "isFingerFood": false
       }
     },
     {
@@ -584,7 +1013,12 @@
         "hasSeeds": false,
         "hasThickPeel": false,
         "isGrainDish": false,
-        "isBreadType": true
+        "isBreadType": true,
+        "isRound": false,
+        "isSmallSized": false,
+        "growsInBunches": false,
+        "isSolidSnack": false,
+        "isFingerFood": false
       }
     },
     {
@@ -609,7 +1043,12 @@
         "hasSeeds": false,
         "hasThickPeel": false,
         "isGrainDish": false,
-        "isBreadType": true
+        "isBreadType": true,
+        "isRound": false,
+        "isSmallSized": false,
+        "growsInBunches": false,
+        "isSolidSnack": false,
+        "isFingerFood": false
       }
     },
     {
@@ -634,7 +1073,12 @@
         "hasSeeds": false,
         "hasThickPeel": false,
         "isGrainDish": false,
-        "isBreadType": false
+        "isBreadType": false,
+        "isRound": false,
+        "isSmallSized": false,
+        "growsInBunches": false,
+        "isSolidSnack": false,
+        "isFingerFood": false
       }
     },
     {
@@ -659,32 +1103,12 @@
         "hasSeeds": false,
         "hasThickPeel": false,
         "isGrainDish": false,
-        "isBreadType": false
-      }
-    },
-    {
-      "name": "Pizza",
-      "category": "Food",
-      "attributes": {
-        "isFruit": false,
-        "isStaple": false,
-        "isDairy": false,
-        "isProcessed": true,
-        "isSweet": false,
-        "isSalty": true,
-        "eatenRaw": false,
-        "eatenCooked": true,
-        "baked": true,
-        "isLiquid": false,
-        "isFrozen": false,
-        "isPlantBased": false,
-        "isAnimalBased": false,
-        "servedHot": true,
-        "servedCold": false,
-        "hasSeeds": false,
-        "hasThickPeel": false,
-        "isGrainDish": false,
-        "isBreadType": false
+        "isBreadType": false,
+        "isRound": false,
+        "isSmallSized": false,
+        "growsInBunches": false,
+        "isSolidSnack": false,
+        "isFingerFood": false
       }
     },
     {
@@ -709,7 +1133,72 @@
         "hasSeeds": false,
         "hasThickPeel": false,
         "isGrainDish": false,
-        "isBreadType": false
+        "isBreadType": false,
+        "isRound": false,
+        "isSmallSized": false,
+        "growsInBunches": false,
+        "isSolidSnack": true,
+        "isFingerFood": true
+      }
+    },
+    {
+      "name": "French Fries",
+      "category": "Food",
+      "attributes": {
+        "isFruit": false,
+        "isStaple": false,
+        "isDairy": false,
+        "isProcessed": true,
+        "isSweet": false,
+        "isSalty": true,
+        "eatenRaw": false,
+        "eatenCooked": true,
+        "baked": false,
+        "isLiquid": false,
+        "isFrozen": false,
+        "isPlantBased": false,
+        "isAnimalBased": false,
+        "servedHot": true,
+        "servedCold": false,
+        "hasSeeds": false,
+        "hasThickPeel": false,
+        "isGrainDish": false,
+        "isBreadType": false,
+        "isRound": false,
+        "isSmallSized": false,
+        "growsInBunches": false,
+        "isSolidSnack": false,
+        "isFingerFood": true
+      }
+    },
+    {
+      "name": "Pizza",
+      "category": "Food",
+      "attributes": {
+        "isFruit": false,
+        "isStaple": false,
+        "isDairy": false,
+        "isProcessed": true,
+        "isSweet": false,
+        "isSalty": true,
+        "eatenRaw": false,
+        "eatenCooked": true,
+        "baked": true,
+        "isLiquid": false,
+        "isFrozen": false,
+        "isPlantBased": false,
+        "isAnimalBased": false,
+        "servedHot": true,
+        "servedCold": false,
+        "hasSeeds": false,
+        "hasThickPeel": false,
+        "isGrainDish": false,
+        "isBreadType": false,
+        "isRound": false,
+        "isSmallSized": false,
+        "growsInBunches": false,
+        "isSolidSnack": false,
+        "isFingerFood": false
       }
     },
     {
@@ -734,7 +1223,12 @@
         "hasSeeds": false,
         "hasThickPeel": false,
         "isGrainDish": false,
-        "isBreadType": false
+        "isBreadType": false,
+        "isRound": false,
+        "isSmallSized": false,
+        "growsInBunches": false,
+        "isSolidSnack": false,
+        "isFingerFood": true
       }
     },
     {
@@ -759,7 +1253,12 @@
         "hasSeeds": false,
         "hasThickPeel": false,
         "isGrainDish": false,
-        "isBreadType": false
+        "isBreadType": false,
+        "isRound": false,
+        "isSmallSized": false,
+        "growsInBunches": false,
+        "isSolidSnack": false,
+        "isFingerFood": false
       }
     },
     {
@@ -791,7 +1290,14 @@
         "isForCooling": false,
         "isForHeating": false,
         "usedForSitting": false,
-        "usedForPlacingItems": false
+        "usedForPlacingItems": false,
+        "hasManySeeds": false,
+        "hasHairySkin": false,
+        "hasHardOuterShell": false,
+        "usedForFoodStorage": false,
+        "usedForCoolingAir": false,
+        "usedForEntryExit": false,
+        "usedForViewingOutside": false
       }
     },
     {
@@ -823,7 +1329,14 @@
         "isForCooling": false,
         "isForHeating": false,
         "usedForSitting": false,
-        "usedForPlacingItems": false
+        "usedForPlacingItems": false,
+        "hasManySeeds": false,
+        "hasHairySkin": false,
+        "hasHardOuterShell": false,
+        "usedForFoodStorage": false,
+        "usedForCoolingAir": false,
+        "usedForEntryExit": false,
+        "usedForViewingOutside": false
       }
     },
     {
@@ -855,7 +1368,14 @@
         "isForCooling": false,
         "isForHeating": false,
         "usedForSitting": false,
-        "usedForPlacingItems": false
+        "usedForPlacingItems": false,
+        "hasManySeeds": false,
+        "hasHairySkin": false,
+        "hasHardOuterShell": false,
+        "usedForFoodStorage": false,
+        "usedForCoolingAir": false,
+        "usedForEntryExit": false,
+        "usedForViewingOutside": false
       }
     },
     {
@@ -887,7 +1407,14 @@
         "isForCooling": false,
         "isForHeating": false,
         "usedForSitting": false,
-        "usedForPlacingItems": false
+        "usedForPlacingItems": false,
+        "hasManySeeds": false,
+        "hasHairySkin": false,
+        "hasHardOuterShell": false,
+        "usedForFoodStorage": false,
+        "usedForCoolingAir": false,
+        "usedForEntryExit": false,
+        "usedForViewingOutside": false
       }
     },
     {
@@ -919,7 +1446,53 @@
         "isForCooling": true,
         "isForHeating": false,
         "usedForSitting": false,
-        "usedForPlacingItems": false
+        "usedForPlacingItems": false,
+        "hasManySeeds": false,
+        "hasHairySkin": false,
+        "hasHardOuterShell": false,
+        "usedForFoodStorage": true,
+        "usedForCoolingAir": false,
+        "usedForEntryExit": false,
+        "usedForViewingOutside": false
+      }
+    },
+    {
+      "name": "Air Conditioner",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "isAppliance": true,
+        "isFurniture": false,
+        "isVehicle": false,
+        "usesElectricity": true,
+        "usesFuel": false,
+        "usesHumanPower": false,
+        "hasScreen": false,
+        "hasKeyboard": false,
+        "hasButtons": false,
+        "hasTouchInput": false,
+        "usedForCommunication": false,
+        "usedForWork": false,
+        "usedForEntertainment": false,
+        "usedForTransport": false,
+        "usedForCooking": false,
+        "fullyPortable": false,
+        "semiPortable": false,
+        "fixedInPlace": true,
+        "hasEngine": false,
+        "hasPedals": false,
+        "numberOfWheels": 0,
+        "isForCooling": true,
+        "isForHeating": false,
+        "usedForSitting": false,
+        "usedForPlacingItems": false,
+        "hasManySeeds": false,
+        "hasHairySkin": false,
+        "hasHardOuterShell": false,
+        "usedForFoodStorage": false,
+        "usedForCoolingAir": true,
+        "usedForEntryExit": false,
+        "usedForViewingOutside": false
       }
     },
     {
@@ -951,7 +1524,14 @@
         "isForCooling": false,
         "isForHeating": true,
         "usedForSitting": false,
-        "usedForPlacingItems": false
+        "usedForPlacingItems": false,
+        "hasManySeeds": false,
+        "hasHairySkin": false,
+        "hasHardOuterShell": false,
+        "usedForFoodStorage": false,
+        "usedForCoolingAir": false,
+        "usedForEntryExit": false,
+        "usedForViewingOutside": false
       }
     },
     {
@@ -983,7 +1563,14 @@
         "isForCooling": false,
         "isForHeating": false,
         "usedForSitting": false,
-        "usedForPlacingItems": false
+        "usedForPlacingItems": false,
+        "hasManySeeds": false,
+        "hasHairySkin": false,
+        "hasHardOuterShell": false,
+        "usedForFoodStorage": false,
+        "usedForCoolingAir": false,
+        "usedForEntryExit": false,
+        "usedForViewingOutside": false
       }
     },
     {
@@ -1015,7 +1602,14 @@
         "isForCooling": false,
         "isForHeating": false,
         "usedForSitting": true,
-        "usedForPlacingItems": false
+        "usedForPlacingItems": false,
+        "hasManySeeds": false,
+        "hasHairySkin": false,
+        "hasHardOuterShell": false,
+        "usedForFoodStorage": false,
+        "usedForCoolingAir": false,
+        "usedForEntryExit": false,
+        "usedForViewingOutside": false
       }
     },
     {
@@ -1047,7 +1641,92 @@
         "isForCooling": false,
         "isForHeating": false,
         "usedForSitting": false,
-        "usedForPlacingItems": true
+        "usedForPlacingItems": true,
+        "hasManySeeds": false,
+        "hasHairySkin": false,
+        "hasHardOuterShell": false,
+        "usedForFoodStorage": false,
+        "usedForCoolingAir": false,
+        "usedForEntryExit": false,
+        "usedForViewingOutside": false
+      }
+    },
+    {
+      "name": "Door",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "isAppliance": false,
+        "isFurniture": true,
+        "isVehicle": false,
+        "usesElectricity": false,
+        "usesFuel": false,
+        "usesHumanPower": false,
+        "hasScreen": false,
+        "hasKeyboard": false,
+        "hasButtons": false,
+        "hasTouchInput": false,
+        "usedForCommunication": false,
+        "usedForWork": false,
+        "usedForEntertainment": false,
+        "usedForTransport": false,
+        "usedForCooking": false,
+        "fullyPortable": false,
+        "semiPortable": false,
+        "fixedInPlace": true,
+        "hasEngine": false,
+        "hasPedals": false,
+        "numberOfWheels": 0,
+        "isForCooling": false,
+        "isForHeating": false,
+        "usedForSitting": false,
+        "usedForPlacingItems": false,
+        "hasManySeeds": false,
+        "hasHairySkin": false,
+        "hasHardOuterShell": false,
+        "usedForFoodStorage": false,
+        "usedForCoolingAir": false,
+        "usedForEntryExit": true,
+        "usedForViewingOutside": false
+      }
+    },
+    {
+      "name": "Window",
+      "category": "Object",
+      "attributes": {
+        "isElectronic": false,
+        "isAppliance": false,
+        "isFurniture": true,
+        "isVehicle": false,
+        "usesElectricity": false,
+        "usesFuel": false,
+        "usesHumanPower": false,
+        "hasScreen": false,
+        "hasKeyboard": false,
+        "hasButtons": false,
+        "hasTouchInput": false,
+        "usedForCommunication": false,
+        "usedForWork": false,
+        "usedForEntertainment": false,
+        "usedForTransport": false,
+        "usedForCooking": false,
+        "fullyPortable": false,
+        "semiPortable": false,
+        "fixedInPlace": true,
+        "hasEngine": false,
+        "hasPedals": false,
+        "numberOfWheels": 0,
+        "isForCooling": false,
+        "isForHeating": false,
+        "usedForSitting": false,
+        "usedForPlacingItems": false,
+        "hasManySeeds": false,
+        "hasHairySkin": false,
+        "hasHardOuterShell": false,
+        "usedForFoodStorage": false,
+        "usedForCoolingAir": false,
+        "usedForEntryExit": false,
+        "usedForViewingOutside": true
       }
     },
     {
@@ -1079,7 +1758,14 @@
         "isForCooling": false,
         "isForHeating": false,
         "usedForSitting": false,
-        "usedForPlacingItems": false
+        "usedForPlacingItems": false,
+        "hasManySeeds": false,
+        "hasHairySkin": false,
+        "hasHardOuterShell": false,
+        "usedForFoodStorage": false,
+        "usedForCoolingAir": false,
+        "usedForEntryExit": false,
+        "usedForViewingOutside": false
       }
     },
     {
@@ -1111,7 +1797,14 @@
         "isForCooling": false,
         "isForHeating": false,
         "usedForSitting": false,
-        "usedForPlacingItems": false
+        "usedForPlacingItems": false,
+        "hasManySeeds": false,
+        "hasHairySkin": false,
+        "hasHardOuterShell": false,
+        "usedForFoodStorage": false,
+        "usedForCoolingAir": false,
+        "usedForEntryExit": false,
+        "usedForViewingOutside": false
       }
     }
   ]
