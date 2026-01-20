@@ -1,5 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const { recordQuestion, markGameCorrect } =
+  require("../logic/questionStats");
+const { triggerMLRetrain } = require("../logic/retrainML");
 
 const knowledgeBase = require("../data/knowledgeBase.json");
 const { selectBestQuestion } = require("../logic/decisionEngine");
@@ -13,6 +16,8 @@ const DIET_ATTRIBUTES = [
 
 const MAX_QUESTIONS = 15;
 let gameState = null;
+let completedGames = 0;
+const RETRAIN_INTERVAL = 10; // retrain after every 10 games
 
 // ---------- START ----------
 router.post("/start", (req, res) => {
@@ -21,6 +26,8 @@ router.post("/start", (req, res) => {
      lockedCategory: null,
     remainingObjects: [...knowledgeBase.objects],
     askedAttributes: [],
+      askedAttributesInGame: [], // 🧠 NEW
+
     currentAttribute: null,
     questionCount: 0,
     categoryStep: 0,
@@ -35,6 +42,7 @@ router.post("/start", (req, res) => {
 });
 
 // ---------- ANSWER ----------
+
 router.post("/answer", (req, res) => {
   if (!gameState) {
     return res.status(400).json({ message: "Game not started" });
@@ -134,18 +142,32 @@ if (gameState.phase === "category") {
 }
 
   // ================= ATTRIBUTE PHASE =================
+if (
+  gameState.phase === "attributes" &&
+  gameState.currentAttribute
+) {
+  const beforeCount = gameState.remainingObjects.length;
 
-  // Apply previous answer ONLY if user was sure
-  if (
-    gameState.phase === "attributes" &&
-    gameState.currentAttribute &&
-    answer !== null
-  ) {
+  // 🔍 Only filter when user is sure
+  if (answer !== null) {
     gameState.remainingObjects =
       gameState.remainingObjects.filter(
         obj => obj.attributes[gameState.currentAttribute] === answer
       );
   }
+
+  const afterCount = gameState.remainingObjects.length;
+
+  // 🧠 ALWAYS log (including Not Sure)
+  recordQuestion({
+    attribute: gameState.currentAttribute,
+    beforeCount,
+    afterCount,
+    answer
+  });
+}
+
+
 // ===== DIET SHORT-CIRCUIT =====
 if (
   gameState.phase === "attributes" &&
@@ -207,6 +229,7 @@ if (gameState.phase === "attributes") {
     }
 
     gameState.currentAttribute = nextAttr;
+gameState.askedAttributesInGame.push(nextAttr);
 
     // Only mark as asked if user answered yes/no
    // Mark attribute as asked REGARDLESS of answer
@@ -233,13 +256,23 @@ router.post("/feedback", (req, res) => {
   }
 
   // If guess was correct → end game
-  if (correct) {
-    gameState = null;
-    return res.json({
-      status: "done",
-      message: "🎉 Nice! That means my reasoning worked well."
-    });
+if (correct) {
+  markGameCorrect(gameState.askedAttributesInGame);
+
+  completedGames++;
+
+  if (completedGames % RETRAIN_INTERVAL === 0) {
+    triggerMLRetrain();
   }
+
+  gameState = null;
+  return res.json({
+    status: "done",
+    message: "🎉 Nice! That means my reasoning worked well."
+  });
+}
+
+
 
   // Guess was wrong → remove last guessed object
   if (gameState.remainingObjects.length > 0) {
@@ -255,6 +288,11 @@ router.post("/feedback", (req, res) => {
         "😅 I’ve run out of good guesses. That one tricked me!"
     });
   }
+completedGames++;
+
+if (completedGames % RETRAIN_INTERVAL === 0) {
+  triggerMLRetrain();
+}
 
   // Make next best guess
   const nextGuess = selectBestGuess(gameState.remainingObjects);

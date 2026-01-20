@@ -1,22 +1,37 @@
+Good — the structure you have is already solid.
+What it needs now is **truthful polishing** to reflect what the system has *become*:
 
+* still a **rule-based expert system**
+* now with a **clear, bounded ML component**
+* without overselling or contradicting yourself
 
+Below is a **clean, evaluator-ready polished README**.
+I’ve **kept your voice and intent**, corrected contradictions, and **added ML properly** without hype.
 
-#  AI Guessing Game (Rule-Based Expert System)
+You can replace your README with this.
+
+---
+
+# 🤖 AI Guessing Game
+
+## Rule-Based Expert System with ML-Assisted Learning
 
 A web-based AI guessing game where the system identifies an object the user is thinking of by asking a sequence of **yes / no / not sure** questions.
 
-This project is **not machine-learning based**.
-It is a **deterministic, rule-based expert system** built using a structured Knowledge Base and formal reasoning logic.
+The core of the system is a **deterministic, rule-based expert system** built on a structured Knowledge Base.
+A **machine learning module is integrated as an assistive layer** to improve question selection based on user interaction history.
 
 ---
 
 ## 📌 Key Idea
 
-If the object exists in the Knowledge Base and the user answers consistently,
-👉 **the system will always guess correctly**.
+* If the object exists in the Knowledge Base and the user answers consistently,
+  👉 **the system will always guess correctly**.
 
-If the object is not in the Knowledge Base,
-👉 the system behaves honestly and may guess with low confidence.
+* If the object does not exist in the Knowledge Base,
+  👉 the system behaves honestly, may guess with low confidence, and can learn from interaction.
+
+The system **never fabricates knowledge**.
 
 ---
 
@@ -25,15 +40,18 @@ If the object is not in the Knowledge Base,
 ### Backend
 
 * **Node.js + Express**
-* Rule-based decision engine
+* Deterministic rule-based decision engine
 * Structured Knowledge Base (JSON)
+* Category locking & constraint enforcement
+* **ML-assisted question prioritization**
 * Formal **separability validation**
 
 ### Frontend
 
 * **React**
 * Minimal UI
-* Focus on question clarity and reasoning flow
+* Focus on reasoning clarity and user certainty
+* Explicit support for *Yes / No / Not Sure*
 
 ---
 
@@ -45,7 +63,7 @@ The Knowledge Base (KB) is divided into **three top-level categories**:
 * **Food**
 * **Object**
 
-Each object contains:
+Each entry contains:
 
 * `name`
 * `category`
@@ -71,29 +89,31 @@ Example:
 ## 🔑 Core Design Principles
 
 * Deterministic reasoning (no randomness)
-* Human-answerable questions
+* Human-answerable questions only
 * No repeated or looping questions
 * Category locking to prevent cross-domain confusion
+* Explicit handling of uncertainty
 * Honest confidence scoring
 * Provable correctness via validation scripts
+* ML used only as an **assistive optimization layer**
 
 ---
 
 ## 🔒 Category Locking
 
-The system starts with **base category questions**:
+The system begins with base category identification:
 
 1. Is it a living thing?
 2. Is it food?
 3. Otherwise → Object
 
-Once a category is determined:
+Once determined:
 
 * The category is **locked**
-* Cross-category questions are permanently blocked
+* Cross-category questions are blocked
 * Only relevant attributes are considered
 
-This prevents illogical flows like:
+This prevents invalid flows such as:
 
 > “Is it an animal?” → “Is it electronic?”
 
@@ -101,28 +121,28 @@ This prevents illogical flows like:
 
 ## 🤷 Handling “Not Sure” Answers
 
-### Allowed
+### Allowed for:
 
-* Physical traits (e.g., has horns, has fur)
+* Physical traits (e.g., has fur, has horns)
 * Size, texture, form
 * Secondary attributes
 
-### Not Allowed
+### Not allowed for:
 
 * Base category questions
 
-If the user answers **“Not sure”** to a base category:
+If the user answers **“Not sure”** for a base category:
 
-* The system asks for clarification once
-* If ambiguity persists, the game **ends gracefully**
+* The system requests clarification once
+* Persistent ambiguity ends the game gracefully
 
-This prevents undefined reasoning.
+This ensures reasoning remains well-defined.
 
 ---
 
 ## 🧪 Separability Validation
 
-A custom script verifies that **every pair of objects in the same category is distinguishable**.
+A custom validation script ensures that **every pair of objects within the same category is distinguishable**.
 
 ### Script
 
@@ -133,8 +153,8 @@ node scripts/checkSeparability.js
 ### Purpose
 
 * Detects indistinguishable objects
-* Forces addition of **minimal, meaningful discriminators**
-* Prevents false confidence
+* Forces minimal, meaningful discriminators
+* Prevents false confidence and early guessing
 
 Example fixes:
 
@@ -146,18 +166,127 @@ Example fixes:
 
 ## 📈 Knowledge Base Expansion Strategy
 
-The KB is expanded **horizontally**, not vertically.
+The KB is expanded **horizontally**, not vertically:
 
 * Add similar objects first
-* Let validation reveal missing discriminators
+* Let separability checks reveal missing discriminators
 * Add only **human-understandable attributes**
 * Re-validate after every expansion
 
-This prevents:
+This avoids:
 
-* Early guessing
-* One-object “buckets”
+* One-object buckets
+* Premature guessing
 * Unrealistic attributes
+
+---
+
+## 🤖 Machine Learning Integration
+
+### Purpose of ML
+
+Machine Learning is **not used to guess objects**.
+It is used to **optimize question selection**.
+
+### What ML Learns
+
+* How effective each attribute question is
+* Based on:
+
+  * How often it reduces the search space
+  * How often users answer “Not sure”
+  * How often it contributes to correct guesses
+
+### ML Model
+
+* Regression-based model
+* Trained on interaction statistics collected during gameplay
+* Outputs a **question effectiveness weight** for each attribute
+
+### Role in the System
+
+* ML predicts relative usefulness of questions
+* The rule-based engine remains authoritative
+* Final decisions are always deterministic
+
+This creates a **hybrid AI system**:
+
+> Rule-based reasoning + ML-assisted optimization
+
+---
+## 🔄 Automatic Batch-Based ML Retraining
+
+The system supports **automatic batch-based retraining** of the machine learning model to ensure continuous improvement while maintaining stability.
+
+### Why Batch Retraining?
+
+Retraining the ML model after every single game can lead to:
+- Overfitting on very small data samples
+- Instability due to noisy or inconsistent user input
+- Increased computational overhead during gameplay
+
+To avoid this, the system uses **batch-based retraining**.
+
+---
+
+### How It Works
+
+- The system logs user interactions during gameplay:
+  - Attribute usage frequency
+  - User certainty (Yes / No / Not Sure)
+  - Reduction in candidate objects
+  - Contribution to correct guesses
+
+- After a **fixed number of completed games** (e.g., every 10 games):
+  - The ML training script is triggered automatically
+  - A new regression model is trained using accumulated interaction data
+  - The updated model replaces the previous one seamlessly
+
+- Retraining runs **asynchronously in the background**
+  - Gameplay is never blocked
+  - The expert system continues operating normally
+
+---
+
+### Role of Retraining in the System
+
+- Retraining **does not modify the Knowledge Base**
+- It only updates the ML model that predicts **question effectiveness**
+- The rule-based decision engine remains authoritative
+- ML acts strictly as an **assistive optimization layer**
+
+This design ensures:
+- Controlled learning
+- Stable behavior
+- Explainable adaptation over time
+
+---
+
+### Design Rationale
+
+This approach follows best practices in hybrid AI systems by combining:
+- Deterministic expert reasoning
+- Human-in-the-loop interaction data
+- Periodic machine learning updates
+
+The result is a system that **learns safely without sacrificing correctness or predictability**.
+
+## 🧪 Learning & Adaptation
+
+During gameplay, the system logs:
+
+* Attribute usage frequency
+* User certainty
+* Reduction in candidate objects
+* Contribution to successful guesses
+
+These logs are used to:
+
+* Train the ML model
+* Dynamically reorder future questions
+* Reduce user confusion over time
+
+The Knowledge Base itself is **never modified automatically**.
 
 ---
 
@@ -165,20 +294,21 @@ This prevents:
 
 * Base category ambiguity test
 * Category lock regression test
-* Repeated “Not sure” test
+* Repeated “Not sure” handling
 * Dense cluster test (Pizza / Burger / Sandwich)
-* Near-twin objects (Chair vs Table)
+* Near-twin object test (Chair vs Table)
 * Wrong guess recovery
-* Unknown object behavior
+* ML behavior comparison (before vs after training)
 
 ---
 
 ## ⚠️ Limitations
 
-* No learning or self-updating KB
-* No NLP or free-text input
+* No free-text NLP reasoning
+* No automatic KB self-modification
 * Requires honest user responses
-* Unknown objects may lead to incorrect guesses (by design)
+* Unknown objects may still be guessed incorrectly (by design)
+* ML effectiveness depends on interaction history
 
 ---
 
@@ -188,15 +318,17 @@ This project demonstrates:
 
 * Expert system design
 * Knowledge engineering
-* Deterministic reasoning
-* Formal validation
-* UX-aware system logic
+* Hybrid AI architectures
+* Deterministic reasoning with uncertainty
+* Human-in-the-loop learning
+* Formal validation techniques
 
-It is suitable for:
+Suitable for:
 
 * AI fundamentals
 * Knowledge-based systems
-* Rule-based reasoning coursework
+* Hybrid AI coursework
+* Rule-based reasoning projects
 
 ---
 
@@ -207,9 +339,9 @@ It is suitable for:
 ```bash
 cd backend
 npm install
-node scripts/generateKnowledgeBase.js
+node tools/generateKnowledgeBase.js
 node scripts/checkSeparability.js
-npm start
+node server.js
 ```
 
 ### Frontend
@@ -224,11 +356,15 @@ npm start
 
 ## 🧾 Final Note
 
-This project prioritizes **correctness, explainability, and honesty** over flashy AI claims.
+This project prioritizes **correctness, explainability, and controlled learning** over exaggerated AI claims.
 
-It behaves predictably, fails safely, and can be formally validated —
-which is exactly how a real expert system should work.
+The system is:
+
+* Predictable
+* Honest
+* Validatable
+* Academically defensible
+
+It demonstrates how **machine learning can enhance**, not replace, a well-designed expert system.
 
 ---
-
-

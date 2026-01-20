@@ -1,4 +1,9 @@
+const { getMLWeights } = require("./mlWeights");
+
 function selectBestQuestion(objects, askedAttributes) {
+const mlWeights = getMLWeights();
+console.log("🧠 ML WEIGHTS IN USE:", mlWeights);
+
   if (!objects || objects.length <= 1) return null;
 
   const attributes = Object.keys(objects[0].attributes);
@@ -23,7 +28,10 @@ function selectBestQuestion(objects, askedAttributes) {
     if (trueCount > 0 && falseCount > 0) {
       if (!fallbackAttribute) fallbackAttribute = attr;
 
-      const score = Math.abs(trueCount - falseCount);
+const baseScore = Math.abs(trueCount - falseCount);
+const weight = mlWeights[attr] || 1;
+const score = baseScore / weight;
+
       if (score < bestScore) {
         bestScore = score;
         bestAttribute = attr;

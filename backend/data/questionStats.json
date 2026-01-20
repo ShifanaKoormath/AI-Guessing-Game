@@ -1,0 +1,162 @@
+{
+  "isMammal": {
+    "asked": 10,
+    "answeredYes": 10,
+    "answeredNo": 0,
+    "answeredNotSure": 0,
+    "totalReduction": 100,
+    "gamesLedToCorrectGuess": 6
+  },
+  "isHerbivore": {
+    "asked": 8,
+    "answeredYes": 1,
+    "answeredNo": 1,
+    "answeredNotSure": 6,
+    "totalReduction": 8,
+    "gamesLedToCorrectGuess": 6
+  },
+  "isDomestic": {
+    "asked": 9,
+    "answeredYes": 5,
+    "answeredNo": 4,
+    "answeredNotSure": 0,
+    "totalReduction": 32,
+    "gamesLedToCorrectGuess": 5
+  },
+  "hasStripes": {
+    "asked": 3,
+    "answeredYes": 1,
+    "answeredNo": 2,
+    "answeredNotSure": 0,
+    "totalReduction": 3,
+    "gamesLedToCorrectGuess": 2
+  },
+  "isPredator": {
+    "asked": 3,
+    "answeredYes": 2,
+    "answeredNo": 1,
+    "answeredNotSure": 0,
+    "totalReduction": 4,
+    "gamesLedToCorrectGuess": 2
+  },
+  "canBite": {
+    "asked": 3,
+    "answeredYes": 3,
+    "answeredNo": 0,
+    "answeredNotSure": 0,
+    "totalReduction": 9,
+    "gamesLedToCorrectGuess": 1
+  },
+  "isCarnivore": {
+    "asked": 4,
+    "answeredYes": 0,
+    "answeredNo": 0,
+    "answeredNotSure": 4,
+    "totalReduction": 0,
+    "gamesLedToCorrectGuess": 3
+  },
+  "isOmnivore": {
+    "asked": 4,
+    "answeredYes": 0,
+    "answeredNo": 0,
+    "answeredNotSure": 4,
+    "totalReduction": 0,
+    "gamesLedToCorrectGuess": 3
+  },
+  "hasFur": {
+    "asked": 2,
+    "answeredYes": 2,
+    "answeredNo": 0,
+    "answeredNotSure": 0,
+    "totalReduction": 6,
+    "gamesLedToCorrectGuess": 2
+  },
+  "usesElectricity": {
+    "asked": 1,
+    "answeredYes": 1,
+    "answeredNo": 0,
+    "answeredNotSure": 0,
+    "totalReduction": 6,
+    "gamesLedToCorrectGuess": 1
+  },
+  "hasScreen": {
+    "asked": 1,
+    "answeredYes": 0,
+    "answeredNo": 1,
+    "answeredNotSure": 0,
+    "totalReduction": 4,
+    "gamesLedToCorrectGuess": 1
+  },
+  "isForCooling": {
+    "asked": 1,
+    "answeredYes": 1,
+    "answeredNo": 0,
+    "answeredNotSure": 0,
+    "totalReduction": 2,
+    "gamesLedToCorrectGuess": 1
+  },
+  "usedForFoodStorage": {
+    "asked": 1,
+    "answeredYes": 1,
+    "answeredNo": 0,
+    "answeredNotSure": 0,
+    "totalReduction": 1,
+    "gamesLedToCorrectGuess": 1
+  },
+  "isFruit": {
+    "asked": 2,
+    "answeredYes": 2,
+    "answeredNo": 0,
+    "answeredNotSure": 0,
+    "totalReduction": 20,
+    "gamesLedToCorrectGuess": 0
+  },
+  "hasThickPeel": {
+    "asked": 2,
+    "answeredYes": 2,
+    "answeredNo": 0,
+    "answeredNotSure": 0,
+    "totalReduction": 14,
+    "gamesLedToCorrectGuess": 0
+  },
+  "hasSeeds": {
+    "asked": 2,
+    "answeredYes": 1,
+    "answeredNo": 1,
+    "answeredNotSure": 0,
+    "totalReduction": 5,
+    "gamesLedToCorrectGuess": 0
+  },
+  "isRound": {
+    "asked": 1,
+    "answeredYes": 0,
+    "answeredNo": 0,
+    "answeredNotSure": 1,
+    "totalReduction": 0,
+    "gamesLedToCorrectGuess": 0
+  },
+  "isSmallSized": {
+    "asked": 1,
+    "answeredYes": 0,
+    "answeredNo": 0,
+    "answeredNotSure": 1,
+    "totalReduction": 0,
+    "gamesLedToCorrectGuess": 0
+  },
+  "hasHorns": {
+    "asked": 1,
+    "answeredYes": 1,
+    "answeredNo": 0,
+    "answeredNotSure": 0,
+    "totalReduction": 2,
+    "gamesLedToCorrectGuess": 1
+  },
+  "isMedium": {
+    "asked": 8,
+    "answeredYes": 8,
+    "answeredNo": 0,
+    "answeredNotSure": 0,
+    "totalReduction": 1,
+    "gamesLedToCorrectGuess": 1
+  }
+}
