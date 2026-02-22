@@ -1,37 +1,24 @@
-Good — the structure you have is already solid.
-What it needs now is **truthful polishing** to reflect what the system has *become*:
-
-* still a **rule-based expert system**
-* now with a **clear, bounded ML component**
-* without overselling or contradicting yourself
-
-Below is a **clean, evaluator-ready polished README**.
-I’ve **kept your voice and intent**, corrected contradictions, and **added ML properly** without hype.
-
-You can replace your README with this.
-
----
 
 # 🤖 AI Guessing Game
 
-## Rule-Based Expert System with ML-Assisted Learning
+## Rule-Based Expert System with ML-Assisted Optimization
 
-A web-based AI guessing game where the system identifies an object the user is thinking of by asking a sequence of **yes / no / not sure** questions.
+A web-based AI guessing game where the system identifies an object the user is thinking of by asking a sequence of **Yes / No / Not Sure** questions.
 
-The core of the system is a **deterministic, rule-based expert system** built on a structured Knowledge Base.
-A **machine learning module is integrated as an assistive layer** to improve question selection based on user interaction history.
+The core is a **deterministic rule-based expert system** built on a structured Knowledge Base.
+A **machine learning module acts only as an assistive optimization layer** to improve question ordering based on interaction history.
 
 ---
 
 ## 📌 Key Idea
 
 * If the object exists in the Knowledge Base and the user answers consistently,
-  👉 **the system will always guess correctly**.
+  👉 **the system will always converge to the correct guess.**
 
-* If the object does not exist in the Knowledge Base,
-  👉 the system behaves honestly, may guess with low confidence, and can learn from interaction.
+* If the object does not exist,
+  👉 the system behaves honestly, may fail, and can **learn safely through user-guided Learning Mode.**
 
-The system **never fabricates knowledge**.
+The system **never fabricates knowledge** and **never modifies the KB automatically.**
 
 ---
 
@@ -39,37 +26,33 @@ The system **never fabricates knowledge**.
 
 ### Backend
 
-* **Node.js + Express**
+* Node.js + Express
 * Deterministic rule-based decision engine
-* Structured Knowledge Base (JSON)
-* Category locking & constraint enforcement
+* JSON Knowledge Base
+* Category locking
+* Attribute-based elimination
+* Separability validation
+* **Guided Learning Mode (safe KB expansion)**
 * **ML-assisted question prioritization**
-* Formal **separability validation**
 
 ### Frontend
 
-* **React**
-* Minimal UI
-* Focus on reasoning clarity and user certainty
-* Explicit support for *Yes / No / Not Sure*
+* React
+* Deterministic interaction flow
+* Explicit support for **Yes / No / Not Sure**
+* Separate Learning Mode UI
 
 ---
 
 ## 🗂 Knowledge Base Design
 
-The Knowledge Base (KB) is divided into **three top-level categories**:
+The KB is divided into three categories:
 
 * **Animal**
 * **Food**
 * **Object**
 
-Each entry contains:
-
-* `name`
-* `category`
-* `attributes` (boolean / numeric)
-
-Example:
+Each object contains:
 
 ```json
 {
@@ -84,262 +67,205 @@ Example:
 }
 ```
 
+Attributes are:
+
+* Boolean (true / false / null)
+* Occasionally numeric (e.g., `numberOfWheels`)
+
 ---
 
 ## 🔑 Core Design Principles
 
 * Deterministic reasoning (no randomness)
-* Human-answerable questions only
-* No repeated or looping questions
-* Category locking to prevent cross-domain confusion
-* Explicit handling of uncertainty
+* No fabricated knowledge
+* Human-answerable attributes only
+* Category locking
+* Explicit uncertainty handling
+* No looping or repeated questions
 * Honest confidence scoring
-* Provable correctness via validation scripts
-* ML used only as an **assistive optimization layer**
+* ML used **only for optimization**
+* KB updated **only through controlled learning**
 
 ---
 
 ## 🔒 Category Locking
 
-The system begins with base category identification:
+Game begins with base classification:
 
-1. Is it a living thing?
-2. Is it food?
+1. Is it a living thing? → Animal
+2. Is it food? → Food
 3. Otherwise → Object
 
 Once determined:
 
-* The category is **locked**
-* Cross-category questions are blocked
-* Only relevant attributes are considered
-
-This prevents invalid flows such as:
-
-> “Is it an animal?” → “Is it electronic?”
+* Category is **locked**
+* Cross-category attributes blocked
+* Reasoning stays consistent
 
 ---
 
-## 🤷 Handling “Not Sure” Answers
+## 🤷 Handling “Not Sure”
 
-### Allowed for:
+Allowed for:
 
-* Physical traits (e.g., has fur, has horns)
-* Size, texture, form
-* Secondary attributes
+* Secondary physical traits
+* Size / texture / behavior
 
-### Not allowed for:
+Not allowed for:
 
 * Base category questions
 
-If the user answers **“Not sure”** for a base category:
-
-* The system requests clarification once
-* Persistent ambiguity ends the game gracefully
-
-This ensures reasoning remains well-defined.
+Repeated ambiguity ends the game cleanly.
 
 ---
 
 ## 🧪 Separability Validation
 
-A custom validation script ensures that **every pair of objects within the same category is distinguishable**.
-
-### Script
+Script:
 
 ```bash
 node scripts/checkSeparability.js
 ```
 
-### Purpose
+Ensures:
 
-* Detects indistinguishable objects
-* Forces minimal, meaningful discriminators
-* Prevents false confidence and early guessing
-
-Example fixes:
-
-* Rice ↔ Chapati → `isGrainDish` vs `isBreadType`
-* Refrigerator ↔ Microwave → `isForCooling` vs `isForHeating`
-* Chair ↔ Table → `usedForSitting` vs `usedForPlacingItems`
+* Every pair of objects in a category is distinguishable
+* No duplicate or indistinguishable entries
+* Prevents false confidence
 
 ---
 
-## 📈 Knowledge Base Expansion Strategy
+## 📚 Learning Mode (Stable Version)
 
-The KB is expanded **horizontally**, not vertically:
+Learning Mode activates **only when the system fails to guess correctly**.
 
-* Add similar objects first
-* Let separability checks reveal missing discriminators
-* Add only **human-understandable attributes**
-* Re-validate after every expansion
+### Flow
 
-This avoids:
+1. System fails → asks user for permission to learn
+2. User provides object name
+3. System asks remaining attributes using human-friendly questions
+4. Previously known answers from gameplay are reused
+5. Mutual-exclusion & implication rules auto-applied
+6. Full attribute vector constructed
+7. Duplicate & indistinguishable validation performed
+8. Object safely written to KB (atomic write)
 
-* One-object buckets
-* Premature guessing
-* Unrealistic attributes
+### Safety Guarantees
+
+* Category inferred from gameplay (never re-asked)
+* KB never corrupted
+* Duplicate objects prevented
+* Indistinguishable objects rejected
+* Partial answers allowed
+* Unknown attributes normalized to `null`
+* No automatic learning outside Learning Mode
 
 ---
 
 ## 🤖 Machine Learning Integration
 
-### Purpose of ML
+### Purpose
 
-Machine Learning is **not used to guess objects**.
-It is used to **optimize question selection**.
+ML **does NOT guess objects.**
+It improves **question ordering efficiency.**
 
 ### What ML Learns
 
-* How effective each attribute question is
-* Based on:
+* Which attributes reduce search space best
+* Which attributes users answer confidently
+* Which attributes contribute to correct guesses
 
-  * How often it reduces the search space
-  * How often users answer “Not sure”
-  * How often it contributes to correct guesses
+### Model
 
-### ML Model
+* Regression-based
+* Trained on gameplay interaction logs
+* Outputs **attribute effectiveness weights**
 
-* Regression-based model
-* Trained on interaction statistics collected during gameplay
-* Outputs a **question effectiveness weight** for each attribute
+### System Role
 
-### Role in the System
+* ML suggests question priority
+* Rule-based engine remains authoritative
+* Final reasoning always deterministic
 
-* ML predicts relative usefulness of questions
-* The rule-based engine remains authoritative
-* Final decisions are always deterministic
+Hybrid approach:
 
-This creates a **hybrid AI system**:
-
-> Rule-based reasoning + ML-assisted optimization
-
----
-## 🔄 Automatic Batch-Based ML Retraining
-
-The system supports **automatic batch-based retraining** of the machine learning model to ensure continuous improvement while maintaining stability.
-
-### Why Batch Retraining?
-
-Retraining the ML model after every single game can lead to:
-- Overfitting on very small data samples
-- Instability due to noisy or inconsistent user input
-- Increased computational overhead during gameplay
-
-To avoid this, the system uses **batch-based retraining**.
+> Rule-Based Reasoning + ML Optimization
 
 ---
 
-### How It Works
+## 🔄 Automatic Batch ML Retraining
 
-- The system logs user interactions during gameplay:
-  - Attribute usage frequency
-  - User certainty (Yes / No / Not Sure)
-  - Reduction in candidate objects
-  - Contribution to correct guesses
+Retraining occurs after a fixed number of completed games (e.g., every 10):
 
-- After a **fixed number of completed games** (e.g., every 10 games):
-  - The ML training script is triggered automatically
-  - A new regression model is trained using accumulated interaction data
-  - The updated model replaces the previous one seamlessly
+* Interaction logs collected during gameplay
+* Model retrained asynchronously
+* Gameplay never blocked
+* KB remains unchanged
 
-- Retraining runs **asynchronously in the background**
-  - Gameplay is never blocked
-  - The expert system continues operating normally
+Ensures:
+
+* Stable learning
+* No overfitting
+* Explainable improvement
 
 ---
 
-### Role of Retraining in the System
-
-- Retraining **does not modify the Knowledge Base**
-- It only updates the ML model that predicts **question effectiveness**
-- The rule-based decision engine remains authoritative
-- ML acts strictly as an **assistive optimization layer**
-
-This design ensures:
-- Controlled learning
-- Stable behavior
-- Explainable adaptation over time
-
----
-
-### Design Rationale
-
-This approach follows best practices in hybrid AI systems by combining:
-- Deterministic expert reasoning
-- Human-in-the-loop interaction data
-- Periodic machine learning updates
-
-The result is a system that **learns safely without sacrificing correctness or predictability**.
-
-## 🧪 Learning & Adaptation
-
-During gameplay, the system logs:
+## 🧪 What the System Logs
 
 * Attribute usage frequency
 * User certainty
-* Reduction in candidate objects
+* Candidate reduction
 * Contribution to successful guesses
 
-These logs are used to:
-
-* Train the ML model
-* Dynamically reorder future questions
-* Reduce user confusion over time
-
-The Knowledge Base itself is **never modified automatically**.
+Used only for ML optimization — **never for automatic KB edits.**
 
 ---
 
-## 🧪 Recommended Tests
+## 📈 Knowledge Base Expansion Strategy
 
-* Base category ambiguity test
-* Category lock regression test
-* Repeated “Not sure” handling
-* Dense cluster test (Pizza / Burger / Sandwich)
-* Near-twin object test (Chair vs Table)
-* Wrong guess recovery
-* ML behavior comparison (before vs after training)
+* Expand horizontally (similar objects first)
+* Let separability reveal missing attributes
+* Add only human-understandable attributes
+* Validate after every expansion
+
+Avoids:
+
+* One-object categories
+* Artificial attributes
+* Premature guessing
 
 ---
 
 ## ⚠️ Limitations
 
-* No free-text NLP reasoning
-* No automatic KB self-modification
+* No NLP / free-text reasoning
 * Requires honest user responses
-* Unknown objects may still be guessed incorrectly (by design)
-* ML effectiveness depends on interaction history
+* Unknown objects may still fail (by design)
+* ML effectiveness depends on interaction volume
+* Not a generative AI system
 
 ---
 
 ## 🎓 Academic Relevance
 
-This project demonstrates:
+Demonstrates:
 
 * Expert system design
 * Knowledge engineering
-* Hybrid AI architectures
-* Deterministic reasoning with uncertainty
-* Human-in-the-loop learning
-* Formal validation techniques
-
-Suitable for:
-
-* AI fundamentals
-* Knowledge-based systems
-* Hybrid AI coursework
-* Rule-based reasoning projects
+* Hybrid AI architecture
+* Deterministic reasoning under uncertainty
+* Human-guided learning
+* Formal validation & correctness
 
 ---
 
-## 🚀 How to Run
+## 🚀 Run the Project
 
 ### Backend
 
 ```bash
 cd backend
 npm install
-node tools/generateKnowledgeBase.js
 node scripts/checkSeparability.js
 node server.js
 ```
@@ -356,15 +282,13 @@ npm start
 
 ## 🧾 Final Note
 
-This project prioritizes **correctness, explainability, and controlled learning** over exaggerated AI claims.
+This project prioritizes:
 
-The system is:
+* Correctness
+* Explainability
+* Controlled learning
+* Deterministic reasoning
 
-* Predictable
-* Honest
-* Validatable
-* Academically defensible
-
-It demonstrates how **machine learning can enhance**, not replace, a well-designed expert system.
+It demonstrates how **machine learning can enhance — not replace — a well-designed expert system.**
 
 ---

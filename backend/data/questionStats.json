@@ -1,34 +1,34 @@
 {
   "isMammal": {
-    "asked": 10,
-    "answeredYes": 10,
-    "answeredNo": 0,
+    "asked": 29,
+    "answeredYes": 27,
+    "answeredNo": 2,
     "answeredNotSure": 0,
-    "totalReduction": 100,
-    "gamesLedToCorrectGuess": 6
+    "totalReduction": 286,
+    "gamesLedToCorrectGuess": 8
   },
   "isHerbivore": {
-    "asked": 8,
-    "answeredYes": 1,
-    "answeredNo": 1,
+    "asked": 25,
+    "answeredYes": 13,
+    "answeredNo": 6,
     "answeredNotSure": 6,
-    "totalReduction": 8,
-    "gamesLedToCorrectGuess": 6
+    "totalReduction": 77,
+    "gamesLedToCorrectGuess": 8
   },
   "isDomestic": {
-    "asked": 9,
-    "answeredYes": 5,
-    "answeredNo": 4,
+    "asked": 14,
+    "answeredYes": 9,
+    "answeredNo": 5,
     "answeredNotSure": 0,
-    "totalReduction": 32,
+    "totalReduction": 42,
     "gamesLedToCorrectGuess": 5
   },
   "hasStripes": {
-    "asked": 3,
+    "asked": 4,
     "answeredYes": 1,
-    "answeredNo": 2,
+    "answeredNo": 3,
     "answeredNotSure": 0,
-    "totalReduction": 3,
+    "totalReduction": 4,
     "gamesLedToCorrectGuess": 2
   },
   "isPredator": {
@@ -72,27 +72,27 @@
     "gamesLedToCorrectGuess": 2
   },
   "usesElectricity": {
-    "asked": 1,
-    "answeredYes": 1,
-    "answeredNo": 0,
+    "asked": 12,
+    "answeredYes": 2,
+    "answeredNo": 10,
     "answeredNotSure": 0,
-    "totalReduction": 6,
-    "gamesLedToCorrectGuess": 1
+    "totalReduction": 92,
+    "gamesLedToCorrectGuess": 2
   },
   "hasScreen": {
-    "asked": 1,
+    "asked": 2,
     "answeredYes": 0,
-    "answeredNo": 1,
+    "answeredNo": 2,
     "answeredNotSure": 0,
-    "totalReduction": 4,
+    "totalReduction": 8,
     "gamesLedToCorrectGuess": 1
   },
   "isForCooling": {
-    "asked": 1,
+    "asked": 2,
     "answeredYes": 1,
-    "answeredNo": 0,
+    "answeredNo": 1,
     "answeredNotSure": 0,
-    "totalReduction": 2,
+    "totalReduction": 4,
     "gamesLedToCorrectGuess": 1
   },
   "usedForFoodStorage": {
@@ -104,27 +104,27 @@
     "gamesLedToCorrectGuess": 1
   },
   "isFruit": {
-    "asked": 2,
-    "answeredYes": 2,
-    "answeredNo": 0,
+    "asked": 9,
+    "answeredYes": 3,
+    "answeredNo": 6,
     "answeredNotSure": 0,
-    "totalReduction": 20,
-    "gamesLedToCorrectGuess": 0
+    "totalReduction": 107,
+    "gamesLedToCorrectGuess": 1
   },
   "hasThickPeel": {
-    "asked": 2,
-    "answeredYes": 2,
+    "asked": 3,
+    "answeredYes": 3,
     "answeredNo": 0,
     "answeredNotSure": 0,
-    "totalReduction": 14,
+    "totalReduction": 21,
     "gamesLedToCorrectGuess": 0
   },
   "hasSeeds": {
-    "asked": 2,
+    "asked": 3,
     "answeredYes": 1,
-    "answeredNo": 1,
+    "answeredNo": 2,
     "answeredNotSure": 0,
-    "totalReduction": 5,
+    "totalReduction": 8,
     "gamesLedToCorrectGuess": 0
   },
   "isRound": {
@@ -136,6 +136,54 @@
     "gamesLedToCorrectGuess": 0
   },
   "isSmallSized": {
+    "asked": 2,
+    "answeredYes": 0,
+    "answeredNo": 1,
+    "answeredNotSure": 1,
+    "totalReduction": 1,
+    "gamesLedToCorrectGuess": 0
+  },
+  "hasHorns": {
+    "asked": 13,
+    "answeredYes": 13,
+    "answeredNo": 0,
+    "answeredNotSure": 0,
+    "totalReduction": 26,
+    "gamesLedToCorrectGuess": 3
+  },
+  "isMedium": {
+    "asked": 20,
+    "answeredYes": 19,
+    "answeredNo": 1,
+    "answeredNotSure": 0,
+    "totalReduction": 21,
+    "gamesLedToCorrectGuess": 3
+  },
+  "isLarge": {
+    "asked": 2,
+    "answeredYes": 2,
+    "answeredNo": 0,
+    "answeredNotSure": 0,
+    "totalReduction": 4,
+    "gamesLedToCorrectGuess": 0
+  },
+  "isProcessed": {
+    "asked": 6,
+    "answeredYes": 3,
+    "answeredNo": 3,
+    "answeredNotSure": 0,
+    "totalReduction": 34,
+    "gamesLedToCorrectGuess": 1
+  },
+  "servedHot": {
+    "asked": 4,
+    "answeredYes": 1,
+    "answeredNo": 3,
+    "answeredNotSure": 0,
+    "totalReduction": 8,
+    "gamesLedToCorrectGuess": 1
+  },
+  "isGrainDish": {
     "asked": 1,
     "answeredYes": 0,
     "answeredNo": 0,
@@ -143,20 +191,108 @@
     "totalReduction": 0,
     "gamesLedToCorrectGuess": 0
   },
-  "hasHorns": {
+  "isBreadType": {
+    "asked": 1,
+    "answeredYes": 0,
+    "answeredNo": 1,
+    "answeredNotSure": 0,
+    "totalReduction": 1,
+    "gamesLedToCorrectGuess": 0
+  },
+  "isStaple": {
+    "asked": 3,
+    "answeredYes": 1,
+    "answeredNo": 2,
+    "answeredNotSure": 0,
+    "totalReduction": 8,
+    "gamesLedToCorrectGuess": 1
+  },
+  "isDairy": {
+    "asked": 4,
+    "answeredYes": 0,
+    "answeredNo": 4,
+    "answeredNotSure": 0,
+    "totalReduction": 4,
+    "gamesLedToCorrectGuess": 0
+  },
+  "livesOnLand": {
+    "asked": 1,
+    "answeredYes": 0,
+    "answeredNo": 1,
+    "answeredNotSure": 0,
+    "totalReduction": 2,
+    "gamesLedToCorrectGuess": 0
+  },
+  "canSting": {
+    "asked": 1,
+    "answeredYes": 0,
+    "answeredNo": 1,
+    "answeredNotSure": 0,
+    "totalReduction": 2,
+    "gamesLedToCorrectGuess": 0
+  },
+  "isSalty": {
+    "asked": 3,
+    "answeredYes": 0,
+    "answeredNo": 2,
+    "answeredNotSure": 1,
+    "totalReduction": 6,
+    "gamesLedToCorrectGuess": 1
+  },
+  "isFurniture": {
+    "asked": 10,
+    "answeredYes": 1,
+    "answeredNo": 9,
+    "answeredNotSure": 0,
+    "totalReduction": 38,
+    "gamesLedToCorrectGuess": 1
+  },
+  "usesFuel": {
+    "asked": 7,
+    "answeredYes": 0,
+    "answeredNo": 7,
+    "answeredNotSure": 0,
+    "totalReduction": 7,
+    "gamesLedToCorrectGuess": 0
+  },
+  "isForHeating": {
+    "asked": 1,
+    "answeredYes": 0,
+    "answeredNo": 1,
+    "answeredNotSure": 0,
+    "totalReduction": 1,
+    "gamesLedToCorrectGuess": 0
+  },
+  "usedForSitting": {
     "asked": 1,
     "answeredYes": 1,
     "answeredNo": 0,
     "answeredNotSure": 0,
-    "totalReduction": 2,
+    "totalReduction": 3,
     "gamesLedToCorrectGuess": 1
   },
-  "isMedium": {
-    "asked": 8,
-    "answeredYes": 8,
-    "answeredNo": 0,
+  "usedForTransport": {
+    "asked": 3,
+    "answeredYes": 0,
+    "answeredNo": 2,
+    "answeredNotSure": 1,
+    "totalReduction": 4,
+    "gamesLedToCorrectGuess": 0
+  },
+  "usedForCooking": {
+    "asked": 3,
+    "answeredYes": 1,
+    "answeredNo": 2,
+    "answeredNotSure": 0,
+    "totalReduction": 3,
+    "gamesLedToCorrectGuess": 0
+  },
+  "usesHumanPower": {
+    "asked": 1,
+    "answeredYes": 0,
+    "answeredNo": 1,
     "answeredNotSure": 0,
     "totalReduction": 1,
-    "gamesLedToCorrectGuess": 1
+    "gamesLedToCorrectGuess": 0
   }
 }
