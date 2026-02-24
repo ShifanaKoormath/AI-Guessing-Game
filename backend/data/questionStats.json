@@ -1,27 +1,27 @@
 {
   "isMammal": {
-    "asked": 29,
-    "answeredYes": 27,
+    "asked": 34,
+    "answeredYes": 32,
     "answeredNo": 2,
     "answeredNotSure": 0,
-    "totalReduction": 286,
-    "gamesLedToCorrectGuess": 8
+    "totalReduction": 336,
+    "gamesLedToCorrectGuess": 12
   },
   "isHerbivore": {
-    "asked": 25,
-    "answeredYes": 13,
+    "asked": 30,
+    "answeredYes": 18,
     "answeredNo": 6,
     "answeredNotSure": 6,
-    "totalReduction": 77,
-    "gamesLedToCorrectGuess": 8
+    "totalReduction": 97,
+    "gamesLedToCorrectGuess": 12
   },
   "isDomestic": {
-    "asked": 14,
-    "answeredYes": 9,
+    "asked": 15,
+    "answeredYes": 10,
     "answeredNo": 5,
     "answeredNotSure": 0,
-    "totalReduction": 42,
-    "gamesLedToCorrectGuess": 5
+    "totalReduction": 43,
+    "gamesLedToCorrectGuess": 6
   },
   "hasStripes": {
     "asked": 4,
@@ -144,20 +144,20 @@
     "gamesLedToCorrectGuess": 0
   },
   "hasHorns": {
-    "asked": 13,
-    "answeredYes": 13,
+    "asked": 18,
+    "answeredYes": 17,
     "answeredNo": 0,
-    "answeredNotSure": 0,
-    "totalReduction": 26,
-    "gamesLedToCorrectGuess": 3
+    "answeredNotSure": 1,
+    "totalReduction": 34,
+    "gamesLedToCorrectGuess": 7
   },
   "isMedium": {
-    "asked": 20,
-    "answeredYes": 19,
+    "asked": 25,
+    "answeredYes": 24,
     "answeredNo": 1,
     "answeredNotSure": 0,
-    "totalReduction": 21,
-    "gamesLedToCorrectGuess": 3
+    "totalReduction": 27,
+    "gamesLedToCorrectGuess": 7
   },
   "isLarge": {
     "asked": 2,

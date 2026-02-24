@@ -87,44 +87,53 @@ const [confidence, setConfidence] = useState(0);
     setLoading(false);
   };
 
-  // ---------- FEEDBACK ----------
-  const sendFeedback = async (correct) => {
-    const res = await fetch("http://localhost:5000/game/feedback", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ correct })
-    });
+ // ---------- FEEDBACK ----------
+const sendFeedback = async (correct) => {
+  const res = await fetch("http://localhost:5000/game/feedback", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ correct })
+  });
 
-    const data = await res.json();
+  const data = await res.json();
 
-    // ===== ENTER LEARNING CARD =====
-if (data.status === "learn_prompt") {
-  setGuess("");              // 🔴 CLEAR old guess display
-  setConfidence(0);          // 🔴 reset confidence
-  setFeedbackMessage(data.message);
-  setLearningConsent(true);
-  setAwaitingFeedback(false);
-  return;
-}
-
-    if (data.status === "retry") {
-      setTransitionMessage("Hmm… let me try one more time.");
-
-      setGuessVisible(false);
-      setTimeout(() => {
-        setGuess(data.guess);
-        setConfidence(data.confidence);
-        setGuessVisible(true);
-      }, 120);
-
-      setAwaitingFeedback(true);
-      setTimeout(() => setTransitionMessage(""), 1200);
-      return;
-    }
-
+  // ===== ENTER LEARNING CARD =====
+  if (data.status === "learn_prompt") {
+    setGuess("");           // clear old guess
+    setConfidence(0);
     setFeedbackMessage(data.message);
-    };
+    setLearningConsent(true);
+    setAwaitingFeedback(false);
+    return;
+  }
 
+  // ===== RETRY GUESS =====
+  if (data.status === "retry") {
+    setTransitionMessage("Hmm… let me try one more time.");
+
+    setGuessVisible(false);
+    setTimeout(() => {
+      setGuess(data.guess);
+      setConfidence(data.confidence);
+      setGuessVisible(true);
+    }, 120);
+
+    setAwaitingFeedback(true);
+    setTimeout(() => setTransitionMessage(""), 1200);
+    return;
+  }
+
+  // ===== SUCCESS (USER CLICKED YES 👍) =====
+  if (data.status === "done") {
+    setFeedbackMessage(data.message);
+
+    // 🔴 CRITICAL — unlock result UI
+    setAwaitingFeedback(false);
+    setLearningConsent(false);
+
+    return;
+  }
+};
   // ---------- SUBMIT OBJECT NAME ----------
   const submitLearnName = async () => {
     if (!learnName.trim()) return;

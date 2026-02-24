@@ -394,6 +394,7 @@ if (!gameState.askedAttributes.includes(gameState.currentAttribute)) {
 
 // ---------- FEEDBACK ----------
 router.post("/feedback", (req, res) => {
+  console.log("FEEDBACK RECEIVED:", req.body, "gameState:", !!gameState);
   const { correct } = req.body;
 
   if (!gameState) {
@@ -402,15 +403,30 @@ router.post("/feedback", (req, res) => {
 
   // If guess was correct → end game
 if (correct) {
-  markGameCorrect(gameState.askedAttributesInGame);
+  // 🛡️ Safety guard
+  const asked =
+    Array.isArray(gameState?.askedAttributesInGame)
+      ? gameState.askedAttributesInGame
+      : [];
+
+  try {
+    markGameCorrect(asked);
+  } catch (err) {
+    console.error("markGameCorrect failed:", err);
+  }
 
   completedGames++;
 
   if (completedGames % RETRAIN_INTERVAL === 0) {
-    triggerMLRetrain();
+    try {
+      triggerMLRetrain();
+    } catch (err) {
+      console.error("ML retrain failed:", err);
+    }
   }
 
   gameState = null;
+
   return res.json({
     status: "done",
     message: "🎉 Nice! That means my reasoning worked well."
