@@ -8,7 +8,7 @@ const knowledgeBase = require("../data/knowledgeBase.json");
 const { selectBestQuestion } = require("../logic/decisionEngine");
 const { selectBestGuess } = require("../logic/confidenceEngine");
 const { formatQuestion } = require("../logic/questionFormatter");
-
+const { logGame } = require("../utils/gameLogger");
 
 const DIET_ATTRIBUTES = [
   "isCarnivore",
@@ -161,21 +161,29 @@ const RETRAIN_INTERVAL = 10; // retrain after every 10 games
 
 // ---------- START ----------
 router.post("/start", (req, res) => {
+  
   gameState = {
     phase: "category",
      lockedCategory: null,
     remainingObjects: [...knowledgeBase.objects],
     askedAttributes: [],
       askedAttributesInGame: [], // 🧠 NEW
+    
+      // 🔴 ML + logging fields
+    lastGuess: null,
+    reductions: [],
 
     currentAttribute: null,
     attributeAnswers: {},   // 🔴 NEW
     questionCount: 0,
     categoryStep: 0,
     lastConfidence: 0,
-     categoryRetryCount: 0
+     categoryRetryCount: 0,
   };
-
+  gameState.targetObject =
+  gameState.remainingObjects[
+    Math.floor(Math.random() * gameState.remainingObjects.length)
+  ];
   return res.json({
     question: "Is it a living thing?",
     questionNumber: 1
@@ -300,8 +308,20 @@ if (
         obj => obj.attributes[gameState.currentAttribute] === answer
       );
   }
-
+  
   const afterCount = gameState.remainingObjects.length;
+  
+// ==============================
+// ML EVALUATION: Candidate Reduction
+// ==============================
+const reduction =
+  beforeCount === 0 ? 0 : (beforeCount - afterCount) / beforeCount;
+
+if (!gameState.reductions) {
+  gameState.reductions = [];
+}
+
+gameState.reductions.push(reduction);
 
   // 🧠 ALWAYS log (including Not Sure)
   recordQuestion({
@@ -333,14 +353,20 @@ if (
     (gameState.remainingObjects.length === 1 ||
       gameState.questionCount >= MAX_QUESTIONS)
   ) {
-    const guess = selectBestGuess(gameState.remainingObjects);
-    gameState.lastConfidence = guess.confidence;
 
-    return res.json({
-      status: "guess",
-      guess: guess.name,
-      confidence: guess.confidence
-    });
+  const guess = selectBestGuess(gameState.remainingObjects);
+
+  // 🔴 STORE LAST GUESS
+  gameState.lastGuess = guess.name;
+
+  gameState.lastConfidence = guess.confidence;
+
+  return res.json({
+    status: "guess",
+    guess: guess.name,
+    confidence: guess.confidence
+  });
+    
   }
 // ===== ENFORCE CATEGORY LOCK =====
 if (
@@ -362,16 +388,18 @@ if (gameState.phase === "attributes") {
   );
 
 
-    if (!nextAttr) {
-      const guess = selectBestGuess(gameState.remainingObjects);
-      gameState.lastConfidence = guess.confidence;
+   if (!nextAttr) {
+  const guess = selectBestGuess(gameState.remainingObjects);
 
-      return res.json({
-        status: "guess",
-        guess: guess.name,
-        confidence: guess.confidence
-      });
-    }
+  gameState.lastGuess = guess.name;
+  gameState.lastConfidence = guess.confidence;
+
+  return res.json({
+    status: "guess",
+    guess: guess.name,
+    confidence: guess.confidence
+  });
+}
 
     gameState.currentAttribute = nextAttr;
 gameState.askedAttributesInGame.push(nextAttr);
@@ -403,7 +431,7 @@ router.post("/feedback", (req, res) => {
 
   // If guess was correct → end game
 if (correct) {
-  // 🛡️ Safety guard
+
   const asked =
     Array.isArray(gameState?.askedAttributesInGame)
       ? gameState.askedAttributesInGame
@@ -425,6 +453,24 @@ if (correct) {
     }
   }
 
+  // ==========================
+  // LOG SUCCESSFUL GAME
+  // ==========================
+  logGame({
+    actual_object: gameState.lastGuess || "unknown",
+    guessed_object: gameState.lastGuess || "unknown",
+    questions_asked: gameState.questionCount,
+    objects_remaining: gameState.remainingObjects.length,
+    correct_guess: true,
+    attributes_used: gameState.askedAttributesInGame,
+    avg_reduction:
+      gameState.reductions?.length
+        ? gameState.reductions.reduce((a, b) => a + b, 0) /
+          gameState.reductions.length
+        : 0,
+    ml_used: true
+  });
+
   gameState = null;
 
   return res.json({
@@ -434,14 +480,33 @@ if (correct) {
 }
 
 
+// Guess was wrong → remove last guessed object
+if (gameState.remainingObjects.length > 0) {
+  gameState.remainingObjects.shift();
+}
 
-  // Guess was wrong → remove last guessed object
-  if (gameState.remainingObjects.length > 0) {
-    gameState.remainingObjects.shift(); // remove previous guess
-  }
 
 // If no more objects → ENTER LEARNING MODE
 if (gameState.remainingObjects.length === 0) {
+
+  // ==========================
+  // LOG FAILED GAME
+  // ==========================
+  logGame({
+    actual_object: "unknown",
+    guessed_object: gameState.lastGuess || "unknown",
+    questions_asked: gameState.questionCount,
+    objects_remaining: 0,
+    correct_guess: false,
+    attributes_used: gameState.askedAttributesInGame,
+    avg_reduction:
+      gameState.reductions?.length
+        ? gameState.reductions.reduce((a, b) => a + b, 0) /
+          gameState.reductions.length
+        : 0,
+    ml_used: true
+  });
+
 
 // ============================================
 // BUILD SNAPSHOT OF GAMEPLAY ANSWERS FOR LEARNING

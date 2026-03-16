@@ -1,27 +1,27 @@
 {
   "isMammal": {
-    "asked": 34,
-    "answeredYes": 32,
+    "asked": 41,
+    "answeredYes": 39,
     "answeredNo": 2,
     "answeredNotSure": 0,
-    "totalReduction": 336,
-    "gamesLedToCorrectGuess": 12
+    "totalReduction": 406,
+    "gamesLedToCorrectGuess": 17
   },
   "isHerbivore": {
-    "asked": 30,
-    "answeredYes": 18,
+    "asked": 37,
+    "answeredYes": 25,
     "answeredNo": 6,
     "answeredNotSure": 6,
-    "totalReduction": 97,
-    "gamesLedToCorrectGuess": 12
+    "totalReduction": 125,
+    "gamesLedToCorrectGuess": 17
   },
   "isDomestic": {
-    "asked": 15,
-    "answeredYes": 10,
+    "asked": 16,
+    "answeredYes": 11,
     "answeredNo": 5,
     "answeredNotSure": 0,
-    "totalReduction": 43,
-    "gamesLedToCorrectGuess": 6
+    "totalReduction": 44,
+    "gamesLedToCorrectGuess": 7
   },
   "hasStripes": {
     "asked": 4,
@@ -72,11 +72,11 @@
     "gamesLedToCorrectGuess": 2
   },
   "usesElectricity": {
-    "asked": 12,
+    "asked": 14,
     "answeredYes": 2,
-    "answeredNo": 10,
+    "answeredNo": 12,
     "answeredNotSure": 0,
-    "totalReduction": 92,
+    "totalReduction": 102,
     "gamesLedToCorrectGuess": 2
   },
   "hasScreen": {
@@ -104,68 +104,68 @@
     "gamesLedToCorrectGuess": 1
   },
   "isFruit": {
-    "asked": 9,
-    "answeredYes": 3,
+    "asked": 12,
+    "answeredYes": 6,
     "answeredNo": 6,
     "answeredNotSure": 0,
-    "totalReduction": 107,
-    "gamesLedToCorrectGuess": 1
+    "totalReduction": 137,
+    "gamesLedToCorrectGuess": 3
   },
   "hasThickPeel": {
-    "asked": 3,
-    "answeredYes": 3,
-    "answeredNo": 0,
+    "asked": 6,
+    "answeredYes": 5,
+    "answeredNo": 1,
     "answeredNotSure": 0,
-    "totalReduction": 21,
-    "gamesLedToCorrectGuess": 0
+    "totalReduction": 40,
+    "gamesLedToCorrectGuess": 2
   },
   "hasSeeds": {
-    "asked": 3,
-    "answeredYes": 1,
+    "asked": 5,
+    "answeredYes": 3,
     "answeredNo": 2,
     "answeredNotSure": 0,
-    "totalReduction": 8,
-    "gamesLedToCorrectGuess": 0
+    "totalReduction": 12,
+    "gamesLedToCorrectGuess": 2
   },
   "isRound": {
-    "asked": 1,
-    "answeredYes": 0,
+    "asked": 7,
+    "answeredYes": 6,
     "answeredNo": 0,
     "answeredNotSure": 1,
-    "totalReduction": 0,
-    "gamesLedToCorrectGuess": 0
+    "totalReduction": 7,
+    "gamesLedToCorrectGuess": 2
   },
   "isSmallSized": {
-    "asked": 2,
+    "asked": 3,
     "answeredYes": 0,
-    "answeredNo": 1,
+    "answeredNo": 2,
     "answeredNotSure": 1,
-    "totalReduction": 1,
+    "totalReduction": 3,
     "gamesLedToCorrectGuess": 0
   },
   "hasHorns": {
-    "asked": 18,
-    "answeredYes": 17,
+    "asked": 25,
+    "answeredYes": 23,
     "answeredNo": 0,
-    "answeredNotSure": 1,
-    "totalReduction": 34,
-    "gamesLedToCorrectGuess": 7
+    "answeredNotSure": 2,
+    "totalReduction": 46,
+    "gamesLedToCorrectGuess": 12
   },
   "isMedium": {
-    "asked": 25,
-    "answeredYes": 24,
+    "asked": 38,
+    "answeredYes": 36,
     "answeredNo": 1,
-    "answeredNotSure": 0,
-    "totalReduction": 27,
-    "gamesLedToCorrectGuess": 7
+    "answeredNotSure": 1,
+    "totalReduction": 33,
+    "gamesLedToCorrectGuess": 12
   },
   "isLarge": {
-    "asked": 2,
+    "asked": 3,
     "answeredYes": 2,
     "answeredNo": 0,
-    "answeredNotSure": 0,
+    "answeredNotSure": 1,
     "totalReduction": 4,
-    "gamesLedToCorrectGuess": 0
+    "gamesLedToCorrectGuess": 1
   },
   "isProcessed": {
     "asked": 6,
@@ -240,19 +240,19 @@
     "gamesLedToCorrectGuess": 1
   },
   "isFurniture": {
-    "asked": 10,
-    "answeredYes": 1,
-    "answeredNo": 9,
+    "asked": 12,
+    "answeredYes": 2,
+    "answeredNo": 10,
     "answeredNotSure": 0,
-    "totalReduction": 38,
-    "gamesLedToCorrectGuess": 1
+    "totalReduction": 48,
+    "gamesLedToCorrectGuess": 2
   },
   "usesFuel": {
-    "asked": 7,
+    "asked": 9,
     "answeredYes": 0,
-    "answeredNo": 7,
+    "answeredNo": 9,
     "answeredNotSure": 0,
-    "totalReduction": 7,
+    "totalReduction": 8,
     "gamesLedToCorrectGuess": 0
   },
   "isForHeating": {
@@ -264,27 +264,27 @@
     "gamesLedToCorrectGuess": 0
   },
   "usedForSitting": {
-    "asked": 1,
-    "answeredYes": 1,
+    "asked": 2,
+    "answeredYes": 2,
     "answeredNo": 0,
     "answeredNotSure": 0,
-    "totalReduction": 3,
-    "gamesLedToCorrectGuess": 1
+    "totalReduction": 6,
+    "gamesLedToCorrectGuess": 2
   },
   "usedForTransport": {
-    "asked": 3,
+    "asked": 5,
     "answeredYes": 0,
-    "answeredNo": 2,
-    "answeredNotSure": 1,
-    "totalReduction": 4,
-    "gamesLedToCorrectGuess": 0
+    "answeredNo": 3,
+    "answeredNotSure": 2,
+    "totalReduction": 6,
+    "gamesLedToCorrectGuess": 1
   },
   "usedForCooking": {
-    "asked": 3,
+    "asked": 4,
     "answeredYes": 1,
-    "answeredNo": 2,
+    "answeredNo": 3,
     "answeredNotSure": 0,
-    "totalReduction": 3,
+    "totalReduction": 4,
     "gamesLedToCorrectGuess": 0
   },
   "usesHumanPower": {
@@ -294,5 +294,77 @@
     "answeredNotSure": 0,
     "totalReduction": 1,
     "gamesLedToCorrectGuess": 0
+  },
+  "fixedInPlace": {
+    "asked": 8,
+    "answeredYes": 1,
+    "answeredNo": 7,
+    "answeredNotSure": 0,
+    "totalReduction": 80,
+    "gamesLedToCorrectGuess": 6
+  },
+  "usedInSchool": {
+    "asked": 7,
+    "answeredYes": 5,
+    "answeredNo": 2,
+    "answeredNotSure": 0,
+    "totalReduction": 32,
+    "gamesLedToCorrectGuess": 5
+  },
+  "usedForWriting": {
+    "asked": 5,
+    "answeredYes": 2,
+    "answeredNo": 0,
+    "answeredNotSure": 3,
+    "totalReduction": 6,
+    "gamesLedToCorrectGuess": 5
+  },
+  "usedForWork": {
+    "asked": 5,
+    "answeredYes": 0,
+    "answeredNo": 0,
+    "answeredNotSure": 5,
+    "totalReduction": 0,
+    "gamesLedToCorrectGuess": 5
+  },
+  "usedForStudying": {
+    "asked": 5,
+    "answeredYes": 3,
+    "answeredNo": 0,
+    "answeredNotSure": 2,
+    "totalReduction": 10,
+    "gamesLedToCorrectGuess": 5
+  },
+  "isReadingMaterial": {
+    "asked": 2,
+    "answeredYes": 2,
+    "answeredNo": 0,
+    "answeredNotSure": 0,
+    "totalReduction": 2,
+    "gamesLedToCorrectGuess": 2
+  },
+  "usedForDrawing": {
+    "asked": 3,
+    "answeredYes": 1,
+    "answeredNo": 0,
+    "answeredNotSure": 2,
+    "totalReduction": 5,
+    "gamesLedToCorrectGuess": 3
+  },
+  "writesInk": {
+    "asked": 1,
+    "answeredYes": 1,
+    "answeredNo": 0,
+    "answeredNotSure": 0,
+    "totalReduction": 2,
+    "gamesLedToCorrectGuess": 1
+  },
+  "hasPages": {
+    "asked": 1,
+    "answeredYes": 0,
+    "answeredNo": 0,
+    "answeredNotSure": 1,
+    "totalReduction": 0,
+    "gamesLedToCorrectGuess": 1
   }
 }

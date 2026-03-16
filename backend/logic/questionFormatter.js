@@ -287,6 +287,42 @@ feedsOnBlood: {
 
 usesElectricity: {
   q: "Does it use electricity?"
+},
+usedForWriting: {
+  q: "Is it mainly used for writing?"
+},
+
+writesInk: {
+  q: "Does it write using ink?"
+},
+
+writesGraphite: {
+  q: "Does it write using graphite?",
+  help: "Like a pencil"
+},
+
+needsSharpening: {
+  q: "Does it need sharpening?"
+},
+
+hasPages: {
+  q: "Does it contain pages?"
+},
+
+isReadingMaterial: {
+  q: "Is it used for reading?"
+},
+
+usedForStudying: {
+  q: "Is it commonly used for studying?"
+},
+
+usedInSchool: {
+  q: "Is it commonly used in school?"
+},
+
+usedForDrawing: {
+  q: "Is it used for drawing?"
 }
 
 

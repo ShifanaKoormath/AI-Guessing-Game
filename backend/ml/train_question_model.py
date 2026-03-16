@@ -4,7 +4,13 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 
 # Load question statistics
-with open("../data/questionStats.json") as f:
+import os
+import json
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+stats_path = os.path.join(BASE_DIR, "data", "questionStats.json")
+
+with open(stats_path) as f:
     stats = json.load(f)
 
 X = []

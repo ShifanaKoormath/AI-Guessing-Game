@@ -81,50 +81,72 @@ const baseFood = {
 
 // ---------- OBJECTS ----------
 const baseObject = {
+  // --- object classes ---
   isElectronic: false,
   isAppliance: false,
   isFurniture: false,
   isVehicle: false,
 
+  // --- power ---
   usesElectricity: false,
   usesFuel: false,
   usesHumanPower: false,
 
+  // --- interface ---
   hasScreen: false,
   hasKeyboard: false,
   hasButtons: false,
   hasTouchInput: false,
 
+  // --- usage ---
   usedForCommunication: false,
   usedForWork: false,
   usedForEntertainment: false,
   usedForTransport: false,
   usedForCooking: false,
 
+  // --- mobility ---
   fullyPortable: false,
   semiPortable: false,
   fixedInPlace: false,
 
+  // --- vehicle specifics ---
   hasEngine: false,
   hasPedals: false,
   numberOfWheels: 0,
 
+  // --- appliance specifics ---
   isForCooling: false,
   isForHeating: false,
+  usedForFoodStorage: false,
+  usedForCoolingAir: false,
+
+  // --- furniture specifics ---
   usedForSitting: false,
   usedForPlacingItems: false,
+  usedForEntryExit: false,
+  usedForViewingOutside: false,
+
+  // ==========================
+  // NEW: STATIONERY / SCHOOL
+  // ==========================
+
+  usedForWriting: false,
+  usedForDrawing: false,
+  usedForStudying: false,
+  usedInSchool: false,
+
+  writesInk: false,
+  writesGraphite: false,
+  needsSharpening: false,
+
+  hasPages: false,
+  isReadingMaterial: false,
+
+  // --- random object features (already present) ---
   hasManySeeds: false,
-hasHairySkin: false,
-hasHardOuterShell: false,
-// --- appliances ---
-usedForFoodStorage: false,
-usedForCoolingAir: false,
-
-// --- fixtures ---
-usedForEntryExit: false,
-usedForViewingOutside: false
-
-
+  hasHairySkin: false,
+  hasHardOuterShell: false
 };
 
 /* ================= DATA ================= */
@@ -304,6 +326,7 @@ const foods = [
 
 // ---------- OBJECTS ----------
 const objects = [
+
   // ===== ELECTRONICS =====
   ["Mobile Phone", {
     isElectronic: true,
@@ -341,21 +364,21 @@ const objects = [
   }],
 
   // ===== APPLIANCES =====
- ["Refrigerator", {
-  isAppliance: true,
-  usesElectricity: true,
-  fixedInPlace: true,
-  isForCooling: true,
-  usedForFoodStorage: true   // ✅ discriminator
-}],
+  ["Refrigerator", {
+    isAppliance: true,
+    usesElectricity: true,
+    fixedInPlace: true,
+    isForCooling: true,
+    usedForFoodStorage: true
+  }],
 
-["Air Conditioner", {
-  isAppliance: true,
-  usesElectricity: true,
-  fixedInPlace: true,
-  isForCooling: true,
-  usedForCoolingAir: true    // ✅ discriminator
-}],
+  ["Air Conditioner", {
+    isAppliance: true,
+    usesElectricity: true,
+    fixedInPlace: true,
+    isForCooling: true,
+    usedForCoolingAir: true
+  }],
 
   ["Microwave", {
     isAppliance: true,
@@ -370,7 +393,7 @@ const objects = [
     fixedInPlace: true
   }],
 
-  // ===== FURNITURE & FIXTURES =====
+  // ===== FURNITURE =====
   ["Chair", {
     isFurniture: true,
     fixedInPlace: true,
@@ -383,18 +406,17 @@ const objects = [
     usedForPlacingItems: true
   }],
 
- ["Door", {
-  isFurniture: true,
-  fixedInPlace: true,
-  usedForEntryExit: true     // ✅ discriminator
-}],
+  ["Door", {
+    isFurniture: true,
+    fixedInPlace: true,
+    usedForEntryExit: true
+  }],
 
-["Window", {
-  isFurniture: true,
-  fixedInPlace: true,
-  usedForViewingOutside: true // ✅ discriminator
-}],
-
+  ["Window", {
+    isFurniture: true,
+    fixedInPlace: true,
+    usedForViewingOutside: true
+  }],
 
   // ===== VEHICLES =====
   ["Bicycle", {
@@ -411,9 +433,57 @@ const objects = [
     hasEngine: true,
     numberOfWheels: 4,
     usedForTransport: true
+  }],
+
+  // ==========================
+  // NEW: SCHOOL / STATIONERY
+  // ==========================
+
+  ["Pen", {
+    usedForWriting: true,
+    writesInk: true,
+    usedForWork: true,
+    usedInSchool: true,
+    fullyPortable: true
+  }],
+
+  ["Pencil", {
+    usedForWriting: true,
+    writesGraphite: true,
+    needsSharpening: true,
+    usedForDrawing: true,
+    usedInSchool: true,
+    fullyPortable: true
+  }],
+
+  ["Notebook", {
+    hasPages: true,
+    usedForWriting: true,
+    usedForStudying: true,
+    usedInSchool: true,
+    fullyPortable: true
+  }],
+
+  ["Book", {
+    hasPages: true,
+    isReadingMaterial: true,
+    usedForStudying: true,
+    usedInSchool: true,
+    fullyPortable: true
+  }],
+
+  ["Eraser", {
+    usedForWork: true,
+    usedInSchool: true,
+    fullyPortable: true
+  }],
+
+  ["School Bag", {
+    usedForTransport: true,
+    usedInSchool: true,
+    fullyPortable: true
   }]
 ];
-
 /* ================= GENERATION ================= */
 
 function generate(category, list, base) {

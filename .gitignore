@@ -17,3 +17,8 @@ frontend/build/
 Thumbs.db
 frontend/node_modules/
 backend/node_modules/
+
+# Evaluation outputs
+*.png
+*.pdf
+logs/
